@@ -33,7 +33,7 @@
           <p>
             <h4>Posts</h4>
             {% for post in site.posts %}
-                <a href="{{ site.baseurl }}{{ post.url }}">{{ post.date, post.title }}</a>
+                <a href="{{ site.baseurl }}{{ post.url }}">{{post.title} {post.date}}</a>
                 <br>
             {% endfor %}
           </p>
