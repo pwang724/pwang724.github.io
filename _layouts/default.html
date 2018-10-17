@@ -35,13 +35,21 @@
           <p> <a href="{{ site.baseurl }}/index_2017">Blog Posts from 2017</a> </p>
           <p> <a href="{{ site.baseurl }}/index_2018">Blog Posts from 2018</a> </p>
 
-<!--           <p>
-            <h4>Posts</h4>
-            {% for post in site.posts %}
-                <a href="{{ site.baseurl }}{{ post.url }}">{{post.date | date: "%Y-%m-%d"}} - {{post.title}}</a>
-                <br>
-            {% endfor %}
-          </p> -->
+          <br>
+          <section class="archive-post-list">
+           {% for post in site.posts %}
+               {% assign currentDate = post.date | date: "%Y" %}
+               {% if currentDate != myDate %}
+                   {% unless forloop.first %}</ul>{% endunless %}
+                   <h1>{{ currentDate }}</h1>
+                   <ul>
+                   {% assign myDate = currentDate %}
+               {% endif %}
+               <li><a href="{{ post.url }}"><span>{{ post.date | date: "%B %-d, %Y" }}</span> - {{ post.title }}</a></li>
+               {% if forloop.last %}</ul>{% endif %}
+           {% endfor %}
+          </section>
+
         </p>
       </header>
 
