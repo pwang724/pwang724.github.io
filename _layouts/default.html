@@ -36,7 +36,17 @@
           <p> <a href="{{ site.baseurl }}/index_2018">Blog Posts from 2018</a> </p>
 
           <br>
-          <h1>Archive of posts from {{ page.date | date: "%Y" }}</h1>
+          <a href="/categories/jekyll-plugins/">Plugins</a>
+          <ul>
+          {% for category in site.categories %}
+            {% assign category_name = category[0] %}
+            <li>
+              <a href="/category/{{ category_name | slugify }}/">{{ category_name | replace: "-", " " }}</a>
+            </li>
+          {% endfor %}
+          </ul>   
+
+<!--           <h1>Archive of posts from {{ page.date | date: "%Y" }}</h1>
           <ul class="posts">
           {% for post in page.posts %}
             <li>
@@ -44,7 +54,7 @@
               <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
             </li>
           {% endfor %}
-          </ul>
+          </ul> -->
 
           <br>
         </p>
