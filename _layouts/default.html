@@ -25,24 +25,16 @@
           {% if site.github.is_user_page %}
             <a href="{{ site.github.owner_url }}">GitHub</a>
           {% endif %}
-
           <br>
-          <h4>Posts</h4>
-
-          {% for post in site.posts %}
-              <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-              <br>
-          {% endfor %}
+          <p>
+            <h4>Posts</h4>
+            {% for post in site.posts %}
+                <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                <br>
+            {% endfor %}
+          </p>
         </p>
       </header>
-
-      <nav>
-        <h4>Posts</h4>
-        {% for post in site.posts %}
-            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-            <br>
-        {% endfor %}
-      </nav>
 
       <section>
       {{ content }}
