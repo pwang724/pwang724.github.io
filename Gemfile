@@ -9,6 +9,9 @@ group :jekyll_plugins do
   gem 'jekyll-archives'
 end
 
+plugins:
+  - jekyll-archives
+
 if ENV["GH_PAGES"]
   gem "github-pages"
 elsif ENV["JEKYLL_VERSION"]
