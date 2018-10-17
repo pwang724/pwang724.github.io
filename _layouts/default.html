@@ -29,11 +29,12 @@
           <br>
           <br>
           <br>
+          <p> <a href="{{ site.baseurl }}/">Home</a> </p>
 
           <p>
             <h4>Posts</h4>
             {% for post in site.posts %}
-                <a href="{{ site.baseurl }}{{ post.url }}">{{post.title}} - {{post.date}}</a>
+                <a href="{{ site.baseurl }}{{ post.url }}">{{post.date | date: "%Y-%m-%d"}} - {{post.title}}</a>
                 <br>
             {% endfor %}
           </p>
