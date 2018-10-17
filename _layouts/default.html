@@ -36,17 +36,17 @@
         </p>
       </header>
 
-      <section>
+      <nav>
         <h4>Posts</h4>
         {% for post in site.posts %}
             <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
             <br>
         {% endfor %}
-      </section>
+      </nav>
 
-      <!-- <section> -->
-      <!-- {{ content }} -->
-      <!-- </section> -->
+      <section>
+      {{ content }}
+      </section>
 
       <footer>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
