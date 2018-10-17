@@ -17,28 +17,16 @@
 
         <h1>{{ site.title}}</h1>
         <p>
-          {{ site.description}}
-          <br>
-          <a href="mailto: peterwang724@gmail.com" target="_top">Gmail</a>
-          <br>
-          {% if site.github.is_user_page %}
-            <a href="{{ site.github.owner_url }}">GitHub</a>
-          {% endif %}
-
-          <br>
-          <br>
-          <br>
-          <br>
           <p> <a href="{{ site.baseurl }}/">Home</a> </p>
-          <p> <a href="{{ site.baseurl }}/index_2018">Blog Posts from 2018</a> </p>
+          {{Blog Posts from 2018}}
 
-<!--           <p>
+          <p>
             <h4>Posts</h4>
             {% for post in site.posts %}
                 <a href="{{ site.baseurl }}{{ post.url }}">{{post.date | date: "%Y-%m-%d"}} - {{post.title}}</a>
                 <br>
             {% endfor %}
-          </p> -->
+          </p>
         </p>
       </header>
 
