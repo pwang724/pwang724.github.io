@@ -10,11 +10,17 @@ I needed to see how brain circuits are changing during the course of learning to
 
 2. Microendoscopic lenses. Brain regions thought to underlie associative learning are lodged deep within, and can't be imaged through any conventional methods that only scan the brain surface. But if we shove a lens through the brain and directly on top of these regions, we can see what neurons below are doing.
 
-<video width="320" height="200" autoplay controls loop onplaying="this.controls=false">
+<video width="320" height="200" autoplay loop>
+  <source src="/assets/movies/behavior.mp4" type="video/mp4" />
+</video><video width="320" height="200" autoplay loop>
+  <source src="/assets/movies/gcamp6s.mp4" type="video/mp4" />
+</video>
+
+<!-- <video width="320" height="200" autoplay controls loop onplaying="this.controls=false">
   <source src="/assets/movies/behavior.mp4" type="video/mp4" />
 </video><video width="320" height="200" autoplay controls loop onplaying="this.controls=false">
   <source src="/assets/movies/gcamp6s.mp4" type="video/mp4" />
-</video>
+</video> -->
 
 Using this method, I was able to image
 
