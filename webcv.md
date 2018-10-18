@@ -2,6 +2,12 @@
 layout: default
 ---
 
+## Education
+
+* **PhD in Neuroscience,** Columbia University (2012-2018)
+* **BA in Physics and Neuroscience,** Cornell University (2007-2011)
+
+___
 ## Research
 
 __2012-2018__<br/>
@@ -29,13 +35,12 @@ Advisor: [Scott Sternson](https://www.janelia.org/lab/sternson-lab)<br/>
 Project: assisting my post-doc mentor, Yexica Aponte, we asked whether optogenetic activation of NPY/AgRP neurons in the arcuate nucleus in the hypothalamus is sufficient to induce hunger
 
 ___
-## Education
+## Publications
 
-* **PhD in Neuroscience,** Columbia University (2012-2018)
-* **BA in Physics and Neuroscience,** Cornell University (2007-2011)
+* **Wang P.Y.**, Boboila C., Shamash P., Abbott L.F, Axel R., Imposing structure on odor representations during associative learning in the orbitofrontal and medial prefrontal cortices *(submitting to __Cell__)*
 
 ___
-## Conference Presentations
+## Presentations
 
 * Cold Spring Harbor Laboratory: Neuronal Circuits, New York (2018)
 * Columbia Neuroscience Conference, New York (2018)
@@ -52,11 +57,6 @@ ___
 * **PY Wang**, C Boboila, P Shamash, LF Abbott, R Axel. Imposing structure on odor representations in orbitofrontal and medial prefrontal cortex during learning. *Annual Canadian Neuroscience Conference, Canada (2018)*
 
 * C Boboila, **PY Wang**, N Stein, LF Abbott, R Axel. Orbitofrontal cortex is necessary for task acquisition during olfactory learning. *Cold Spring Harbor Asia Meeting, China (2017)*
-
-___
-## Publications
-
-* **Wang P.Y.**, Boboila C., Shamash P., Abbott L.F, Axel R., Imposing structure on odor representations during associative learning in the orbitofrontal and medial prefrontal cortices *(submitting to __Cell__)*
 
 ___
 ## Teaching
