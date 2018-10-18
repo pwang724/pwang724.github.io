@@ -1,12 +1,7 @@
 ---
-git layout: default
+layout: default
 ---
 
-## Interests
-
-How does structure arise artificial and biological neural networks, and what function does such structure serve in processing and representing information?
-
-___
 ## Research
 
 __2012-2018__<br/>
@@ -20,38 +15,31 @@ Project: I asked how the brain learns to form associations by tracking the popul
 
 __2011-2012__<br/>
 MIT<br/>
-Advisor: [Elly Nedivi](https://nedivilab.mit.edu/)
-
+Advisor: [Elly Nedivi](https://nedivilab.mit.edu/) <br/>
 Project: I studied the short-term structural dynamics of inhibitory and excitatory synapses in excitatory and inhibitory V1 neurons by chronically imaging their dendritic arbors using 2-photon exitation
 
 __2008-2011__<br/>
 Cornell University<br/>
-Advisor: [Joe Fetcho](http://pages.nbb.cornell.edu/neurobio/Fetcho/)
-
+Advisor: [Joe Fetcho](http://pages.nbb.cornell.edu/neurobio/Fetcho/)<br/>
 Project: I attempted to develop a method to deliver DNA to a given neuron's pre-synaptic partners through retrograde viral transport in larval zebrafish
 
 __2009__<br/>
 Howard Hughes Research Campus, Janelia Farm<br/>
-Advisor: [Scott Sternson](https://www.janelia.org/lab/sternson-lab)
-
+Advisor: [Scott Sternson](https://www.janelia.org/lab/sternson-lab)<br/>
 Project: assisting my post-doc mentor, Yexica Aponte, we asked whether optogenetic activation of NPY/AgRP neurons in the arcuate nucleus in the hypothalamus is sufficient to induce hunger
 
 ___
 ## Education
 
 * **PhD in Neuroscience,** Columbia University (2012-2018)
-
 * **BA in Physics and Neuroscience,** Cornell University (2007-2011)
 
 ___
 ## Conference Presentations
 
-* Cold Spring Harbor Laboratory Meeting: Neuronal Circuits, New York (2018)
-
+* Cold Spring Harbor Laboratory: Neuronal Circuits, New York (2018)
 * Columbia Neuroscience Conference, New York (2018)
-
-* Cold Spring Harbor Asia Meeting: Neural Circuits, Suzhou, China (2017)
-
+* Cold Spring Harbor Asia: Neural Circuits, Suzhou, China (2017)
 * Columbia Neuroscience Conference, New York (2016)
 
 ___
@@ -71,7 +59,7 @@ ___
 * **Wang P.Y.**, Boboila C., Shamash P., Abbott L.F, Axel R., Imposing structure on odor representations during associative learning in the orbitofrontal and medial prefrontal cortices *(submitting to __Cell__)*
 
 ___
-## Teaching and Outreach
+## Teaching
 
 * Teaching fellow for GU4004: Cellular and Molecular Neuroscience. Led weekly paper discussions for a group of 30 students (2013)
 
@@ -86,3 +74,9 @@ ___
 * IBRO Travel Award (2018) <br/>
 * Howard Hughes Summer Scholar (2011) <br/>
 * Cornell Arts and Science College Scholar Program (2007-2011)
+
+<!-- ## Interests
+
+* How does structure arise in artificial and biological neural networks, and what function does such structure serve in processing and representing information?
+* Biologically plausible local learning rules[<sup>1</sup>](https://www.sciencedirect.com/science/article/pii/S0959438818300485)<sup>,</sup>
+[<sup>2</sup>](https://www.nature.com/articles/ncomms13276) -->

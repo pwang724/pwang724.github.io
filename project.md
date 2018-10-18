@@ -1,5 +1,5 @@
 ---
-git layout: default
+layout: default
 ---
 
 Our capacity to learn associations gives us a measure of control over our environment by enabling us to predict and act on future events. For instance, upon hearing blaring sirens, we stop what we are doing and scan our surroundings for imminent danger. I asked a simple question in my PhD: how do our brains learn to connect two stimuli together?

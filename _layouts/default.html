@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ site.title | default: site.github.repository_name }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% seo %}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
@@ -27,7 +28,7 @@
           <br>
           <a href="{{ site.baseurl }}/">Home</a><br>
           <a href="{{ site.baseurl }}/webcv">CV</a><br>
-          <a href="{{ site.baseurl }}/project">PhD Projects</a><br>
+          <a href="{{ site.baseurl }}/project">My PhD</a><br>
 
           <!-- <br> -->
           <!-- <a href="{{ site.baseurl }}/index_2017">Blog Posts from 2017</a><br> -->
@@ -38,7 +39,9 @@
       </header>
 
       <section>
+
       {{ content }}
+
       </section>
 
       <footer>
