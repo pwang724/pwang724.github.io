@@ -1,7 +1,6 @@
 theme: jekyll-theme-minimal
 title: Peter Y. Wang
 description: PhD in Neuroscience
-logo: True
 disqus: False
 collections:
 category:
