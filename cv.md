@@ -17,7 +17,7 @@ Advisors:
 [Richard Axel](https://zuckermaninstitute.columbia.edu/richard-axel-md) and
 [Larry Abbott](https://zuckermaninstitute.columbia.edu/larry-f-abbott-phd)
 
-Project: I asked how the brain learns to form associations by tracking the population activity of multiple cognitive brain regions during learning. I found that the orbitofrontal cortex represents predictive value and is important for task acquisition whereas the medial prefrontal cortex is necessary for task performance after task acquisition. See more [here](/project.md)
+Project: I asked how associations are learned by tracking the population activity of multiple cognitive brain regions during learning. I found that the orbitofrontal cortex encodes predictive value and is important during initial learning. It then transfers what it has learned to the medial prefrontal cortex for long-term storage. See more [here](/project.md)
 
 __2011-2012__<br/>
 MIT<br/>
@@ -32,7 +32,7 @@ Project: I attempted to develop a method to deliver DNA to a given neuron's pre-
 __2009__<br/>
 Howard Hughes Research Campus, Janelia Farm<br/>
 Advisor: [Scott Sternson](https://www.janelia.org/lab/sternson-lab)<br/>
-Project: assisting my post-doc mentor, Yexica Aponte, we asked whether optogenetic activation of NPY/AgRP neurons in the arcuate nucleus in the hypothalamus is sufficient to induce hunger
+Project: I assisted my post-doctoral mentor, Yexica Aponte, to ask whether optogenetic activation of NPY/AgRP neurons in the arcuate nucleus in the hypothalamus is sufficient to induce hunger
 
 ___
 ## Publications
