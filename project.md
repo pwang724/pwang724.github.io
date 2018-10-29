@@ -9,11 +9,11 @@ Our capacity to learn associations gives us a measure of control over our enviro
 To do this, I needed to see how brain circuits change during the course of learning. This was technically challenging until the recent development of two important technologies[<sup>1</sup>](https://www.nature.com/articles/nature12354)<sup>,</sup>[<sup>2</sup>](https://www.nature.com/articles/nn.3329). I adapted them to track neural activity in a population of neurons (right) when mice were actively learning to associate an odor with a water reward (left).
 
 <div id="wrapper">
-    <video id="home1" width="320" height="200" autoplay loop>
+    <video id="home1" width="320" height="200" autoplay loop muted="" controls>
       <source src="/assets/movies/behavior.mp4" type="video/mp4" />
     </video>
 
-    <video id="home2" width="320" height="200" autoplay loop>
+    <video id="home2" width="320" height="200" autoplay loop muted="" controls>
       <source src="/assets/movies/gcamp6s.mp4" type="video/mp4" />
     </video>
     <div class="clear"></div>
@@ -21,7 +21,7 @@ To do this, I needed to see how brain circuits change during the course of learn
 
 <br/>
 
-I found that different prefrontal areas performed unique value computations during learning. The orbitofrontal cortex (OFC) rapidly learned to signal positive value in response to cues that predicted reward. Its representation reflected knowledge of task structure, or "state space"[<sup>3</sup>](https://www.sciencedirect.com/science/article/pii/S0896627313010398), and further experiments using optogenetics[<sup>4</sup>](https://www.nature.com/articles/nn1525) (controlling neurons with light) to turn off the OFC revealed it to be indispensable for learning. After learning, it transfered what it has learned to the medial prefrontal cortex (mPFC), where it is further processed and then stored long-term.
+I found that different prefrontal areas performed unique value computations during learning. The orbitofrontal cortex (OFC) rapidly learned to signal positive value in response to cues that predicted reward. Its representation reflected knowledge of task structure, or "state space"[<sup>3</sup>](https://www.sciencedirect.com/science/article/pii/S0896627313010398), and further experiments using optogenetics[<sup>4</sup>](https://www.nature.com/articles/nn1525) (controlling neurons with light) to turn off the OFC revealed it to be indispensable for learning. After learning, it transferred what it has learned to the medial prefrontal cortex (mPFC), where it is further processed and then stored long-term.
 
 We made an important observation: once the task has been learned with a single odor, the OFC turns silent. Why would a learned representation vanish? The process of forgetting may allow the OFC to start again as a clean slate to learn new tasks. Otherwise, the gradual accumulation of information from the past may overload its capacity to be cognitively flexible in the present. The OFC may therefore function as a playground within a wider learning network to experiment and test hypotheses. Once it solves a task, it unloads its knowledge to long-term storage units to free up space. Indeed, the time when OFC's representation degrades is exactly when other brain regions such as the mPFC take over.
 
