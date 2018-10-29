@@ -9,11 +9,11 @@ Our capacity to learn associations gives us a measure of control over our enviro
 To do this, I needed to see how brain circuits change during the course of learning. This was technically challenging until the recent development of two important technologies[<sup>1</sup>](https://www.nature.com/articles/nature12354)<sup>,</sup>[<sup>2</sup>](https://www.nature.com/articles/nn.3329). I adapted them to track neural activity in a population of neurons (right) when mice were actively learning to associate an odor with a water reward (left).
 
 <div id="wrapper">
-    <video id="home1" width="320" height="200" autoplay loop muted="" controls>
+    <video id="home1" width="320" height="200" controls autoplay loop muted="">
       <source src="/assets/movies/behavior.mp4" type="video/mp4" />
     </video>
 
-    <video id="home2" width="320" height="200" autoplay loop muted="" controls>
+    <video id="home2" width="320" height="200" loop muted="" controls>
       <source src="/assets/movies/gcamp6s.mp4" type="video/mp4" />
     </video>
     <div class="clear"></div>
