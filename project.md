@@ -13,7 +13,7 @@ To do this, I needed to see how brain circuits change during the course of learn
       <source src="/assets/movies/behavior.mp4" type="video/mp4" />
     </video>
 
-    <video id="home2" width="320" height="200" loop muted="" controls>
+    <video id="home2" width="320" height="200" autoplay loop muted="" controls>
       <source src="/assets/movies/gcamp6s.mp4" type="video/mp4" />
     </video>
     <div class="clear"></div>
