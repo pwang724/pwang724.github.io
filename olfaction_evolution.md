@@ -4,7 +4,7 @@ layout: default
 
 ## Evolving Olfactory Circuitry in the Machine
 
-The anatomic and functional organization of the olfactory system is similar in flies and mice despite 600 million years of evolution separating the two species. This is an astounding fact, especially since the circuits are constructed from different gene sets. Are these circuits structurally similar because they are easy to evolve, or because they are optimal for odor sensing? We ([Robert Guangyu Yang](https://www.simonsfoundation.org/team/robert-guangyu-yang/) and I) modeled an artificial neural network after the fly olfactory system and asked whether the machine can evolve the same structural principles if we train it to sense and distinguish odors.
+The anatomic and functional organization of the olfactory system is similar in flies and mice despite 600 million years of evolution separating the two species. This is an astounding fact, since the circuits are constructed from different gene sets. Are these circuits structurally similar because they are easy to evolve, or because they are optimal for odor sensing? We ([Robert Guangyu Yang](https://www.simonsfoundation.org/team/robert-guangyu-yang/) and I) modeled an artificial neural network after the fly olfactory system and asked whether the machine can evolve the same structural principles if we train it to sense and distinguish odors.
 
 We focus on flies because their olfactory systems are simple and well-characterized. Shown below is a layout of the fly olfactory system (the beautiful images are courtesy of Daisuke Hattori). Olfactory sensory neurons (OSNs) that express the same olfactory receptor (OR) project onto spatially invariant glomeruli. Projection neurons (PNs) sample from a single glomerulus and in turn innervate Kenyon cells (KCs), which integrate input from random combinations of glomeruli to encode odor identity.
 
@@ -31,4 +31,4 @@ Surprisingly, glomeruli with singular connectivity emerge when the network learn
     <div class="clear"></div>
 </p>
 
-We can now play with all kinds of parameters in the machine model. When we set the number of PNs and KCs in our network to be greater than the amount present within the fly olfactory system, the machine does not do much better at classifying odors. So given limited headspace, the fly olfactory system has evolved an optimal solution for odor sensing.
+We can now play with all kinds of parameters in the machine model. When we set the number of PNs and KCs in our network to be greater than the amount present within the fly olfactory system, the machine does not do any better at classifying odors. So given limited headspace, the fly olfactory system has evolved an optimal solution for odor sensing.
