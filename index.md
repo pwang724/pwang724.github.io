@@ -2,35 +2,83 @@
 layout: default
 ---
 
-## PhD Research
+## Education
 
-Our capacity to learn associations gives us a measure of control over our environment by enabling us to predict and act on future events. For instance, upon hearing blaring sirens, we stop what we are doing and scan our surroundings for imminent danger. I asked a simple question: how do our brains learn to connect two stimuli together?
+* **PhD in Neuroscience,** Columbia University (2012-2018)
+* **BA in Physics and Neuroscience,** Cornell University (2007-2011)
 
-To do this, I needed to see how brain circuits change during the course of learning. This was technically challenging until the recent development of two important technologies[<sup>1</sup>](https://www.nature.com/articles/nature12354)<sup>,</sup>[<sup>2</sup>](https://www.nature.com/articles/nn.3329). I adapted them to track neural activity in a population of neurons (right) when mice were actively learning to associate an odor with a water reward (left).
+___
+## Research
 
-<div id="wrapper">
-    <video id="home1" width="320" height="200" autoplay loop controls muted="">
-      <source src="/assets/movies/behavior.mp4" type="video/mp4" />
-    </video>
+__2012-2018__<br/>
+__PhD in Neuroscience__<br/>
+Columbia University<br/>
+Advisors:
+[Richard Axel](https://zuckermaninstitute.columbia.edu/richard-axel-md) and
+[Larry Abbott](https://zuckermaninstitute.columbia.edu/larry-f-abbott-phd)
 
-    <video id="home2" width="320" height="200" autoplay loop controls muted="">
-      <source src="/assets/movies/gcamp6s.mp4" type="video/mp4" />
-    </video>
-    <div class="clear"></div>
-</div>
+Project: I asked how associations are learned by tracking the population activity of multiple cognitive brain regions during learning. I found that the orbitofrontal cortex encodes predictive value and is important during initial learning. It then transfers what it has learned to the medial prefrontal cortex for long-term storage. See more [here](/project.md)
 
-<br/>
+__2011-2012__<br/>
+MIT<br/>
+Advisor: [Elly Nedivi](https://nedivilab.mit.edu/) <br/>
+Project: I studied the short-term structural dynamics of inhibitory and excitatory synapses in excitatory and inhibitory V1 neurons by chronically imaging their dendritic arbors using 2-photon exitation
 
-I found that different prefrontal areas performed unique value computations during learning. The orbitofrontal cortex (OFC) rapidly learned to signal positive value in response to cues that predicted reward. Its representation reflected knowledge of task structure, or "state space"[<sup>3</sup>](https://www.sciencedirect.com/science/article/pii/S0896627313010398), and further experiments using optogenetics[<sup>4</sup>](https://www.nature.com/articles/nn1525) (controlling neurons with light) to turn off the OFC revealed it to be indispensable for learning. After learning, it transferred what it has learned to the medial prefrontal cortex (mPFC), where it is further processed and then stored long-term.
+__2008-2011__<br/>
+Cornell University<br/>
+Advisor: [Joe Fetcho](http://pages.nbb.cornell.edu/neurobio/Fetcho/)<br/>
+Project: I attempted to develop a method to deliver DNA to a given neuron's pre-synaptic partners through retrograde viral transport in larval zebrafish
 
-We made an important observation: once the task has been learned with a single odor, the OFC turns silent. Why would a learned representation vanish? The process of forgetting may allow the OFC to start again as a clean slate to learn new tasks. Otherwise, the gradual accumulation of information from the past may overload its capacity to be cognitively flexible in the present. The OFC may therefore function as a playground within a wider learning network to experiment and test hypotheses. Once it solves a task, it unloads its knowledge to long-term storage units to free up space. Indeed, the time when OFC's representation degrades is exactly when other brain regions such as the mPFC take over.
+__2009__<br/>
+Howard Hughes Research Campus, Janelia Farm<br/>
+Advisor: [Scott Sternson](https://www.janelia.org/lab/sternson-lab)<br/>
+Project: I assisted my post-doctoral mentor, Yexica Aponte, to ask whether optogenetic activation of NPY/AgRP neurons in the arcuate nucleus in the hypothalamus is sufficient to induce hunger
 
-The OFC computes value and likely informs downstream areas to take appropriate actions to get reward. This framework transfers quite naturally to reinforcement learning (RL) algorithms such as actor-critic (AC) learning, where the critic network also computes value and informs the actor network which action to take next. What can the critic network in AC learning teach us about the OFC, and vice versa?
+___
+## Publications
 
-After training a recurrent AC network on our behavioral task, I found that the critic network reproduced much of the neural dynamics that we observe in the OFC. However, while the critic network served no purpose after the actor has learned an optimal policy, it was still pumping out value estimates. By turning itself off after an optimal policy has been learned, the OFC may have implemented a solution that may be more efficient at learning multiple tasks than current RL algorithms. I am currently interested in finding constraints on network structure that would cause a network to segment itself into distinct "playground" and "storage" modules during training.
+* **Wang P.Y.**, Boboila C., Shamash P., Abbott L.F, Axel R., Imposing structure on odor representations during associative learning in the orbitofrontal and medial prefrontal cortices *(submitting to __Cell__)*
 
-<!-- I then adapted this technology to
+___
+## Presentations
 
-1. Genetically engineered calcium indicators that convert voltage into light. Instead of listening to waveforms, we directly visualize neural activity through changes in fluorescence. This allows us to track the neural activity of a large population of neurons across time.
+* Cold Spring Harbor Laboratory: Neuronal Circuits, New York (2018)
+* Columbia Neuroscience Conference, New York (2018)
+* Cold Spring Harbor Asia: Neural Circuits, Suzhou, China (2017)
+* Columbia Neuroscience Conference, New York (2016)
 
-2. Microendoscopic lenses. Brain regions thought to underlie associative learning are lodged deep within, and can't be imaged through any conventional methods that only scan the brain surface. But if we implant a lens through the cranium until it is directly on top of these regions, we can see what neurons below are doing. -->
+___
+## Conference Abstracts
+
+* Guangyu Robert Yang**\***, **Peter Yiliu Wang\***, Richard Axel, L.F. Abbott (\*equal contribution). Recovering the Connectivity of Olfactory Systems Using Artificial Neural Networks. *Computational and Systems Neuroscience, Portugal (2019)*
+
+* **PY Wang**, C Boboila, P Shamash, N Stein, LF Abbott, R Axel. Imposing structure on odor representations in orbitofrontal and medial prefrontal cortex during learning. *Cold Spring Harbor Meeting on Order and Disorder, Cold Spring Harbor, NY (2018)*
+
+* **PY Wang**, C Boboila, P Shamash, LF Abbott, R Axel. Imposing structure on odor representations in orbitofrontal and medial prefrontal cortex during learning. *Research in Encoding and Decoding of Neural Ensembles (AREADNE), Greece (2018)*
+
+* **PY Wang**, C Boboila, P Shamash, LF Abbott, R Axel. Imposing structure on odor representations in orbitofrontal and medial prefrontal cortex during learning. *Annual Canadian Neuroscience Conference, Canada (2018)*
+
+* C Boboila, **PY Wang**, N Stein, LF Abbott, R Axel. Orbitofrontal cortex is necessary for task acquisition during olfactory learning. *Cold Spring Harbor Asia Meeting, China (2017)*
+
+___
+## Teaching
+
+* Teaching fellow for GU4004: Cellular and Molecular Neuroscience. Led weekly paper discussions for a group of 30 students (2013)
+
+* President, Cornell Neuroscience Club. Published an annual undergraduate neuroscience journal, invited professors to give talks, and organized yearly trips to Society for Neuroscience (2009-2011)
+
+* Teaching assistant for BioNB4110: Undergraduate Neuroscience Journal Club. Helped lead a group of 10-15 students on paper discussions (2009-2011)
+
+___
+## Awards
+
+* CSHL Travel Award (2018) <br/>
+* IBRO Travel Award (2018) <br/>
+* Howard Hughes Summer Scholar (2011) <br/>
+* Cornell Arts and Science College Scholar Program (2007-2011)
+
+<!-- ## Interests
+
+* How does structure arise in artificial and biological neural networks, and what function does such structure serve in processing and representing information?
+* Biologically plausible local learning rules[<sup>1</sup>](https://www.sciencedirect.com/science/article/pii/S0959438818300485)<sup>,</sup>
+[<sup>2</sup>](https://www.nature.com/articles/ncomms13276) -->

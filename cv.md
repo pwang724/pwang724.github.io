@@ -50,6 +50,8 @@ ___
 ___
 ## Conference Abstracts
 
+* Guangyu Robert Yang**\***, **Peter Yiliu Wang\***, Richard Axel, L.F. Abbott (\*equal contribution). Recovering the Connectivity of Olfactory Systems Using Artificial Neural Networks. *Computational and Systems Neuroscience, Portugal (2019)*
+
 * **PY Wang**, C Boboila, P Shamash, N Stein, LF Abbott, R Axel. Imposing structure on odor representations in orbitofrontal and medial prefrontal cortex during learning. *Cold Spring Harbor Meeting on Order and Disorder, Cold Spring Harbor, NY (2018)*
 
 * **PY Wang**, C Boboila, P Shamash, LF Abbott, R Axel. Imposing structure on odor representations in orbitofrontal and medial prefrontal cortex during learning. *Research in Encoding and Decoding of Neural Ensembles (AREADNE), Greece (2018)*

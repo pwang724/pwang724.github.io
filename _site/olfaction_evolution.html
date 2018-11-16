@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Peter Y. Wang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Evolving Olfactory Circuitry in the Machine | Peter Y. Wang</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Evolving Olfactory Circuitry in the Machine" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="PhD in Neuroscience" />
+<meta property="og:description" content="PhD in Neuroscience" />
+<link rel="canonical" href="http://localhost:4000/olfaction_evolution.html" />
+<meta property="og:url" content="http://localhost:4000/olfaction_evolution.html" />
+<meta property="og:site_name" content="Peter Y. Wang" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/olfaction_evolution.html","headline":"Evolving Olfactory Circuitry in the Machine","description":"PhD in Neuroscience","@type":"WebPage","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=a547b927b7291168df1db5b70426da7450173968">
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header>
+        <img src="/assets/img/logo.jpg" alt="Logo" width="190" />
+
+        <h1>Peter Y. Wang</h1>
+        <p>
+          PhD in Neuroscience
+          <br>
+          <a href="mailto: peterwang724@gmail.com" target="_top">Email</a>
+          <br>
+          
+          <a href="/cv">CV</a><br>
+          <br>
+          <br>
+          <a href="/project">Value Computation in the Brain</a><br>
+          <a href="/olfaction_evolution">Evolving the Olfactory System in the Machine</a><br>
+          <!-- <br> -->
+          <!-- <a href="/index_2017">Blog Posts from 2017</a><br> -->
+          <!-- <a href="/index_2018">Blog Posts from 2018</a> -->
+
+          <br>
+        </p>
+      </header>
+
+      <section>
+
+      <h2 id="evolving-olfactory-circuitry-in-the-machine">Evolving Olfactory Circuitry in the Machine</h2>
+
+<p>The anatomic and functional organization of the olfactory system is similar in flies and mice despite 600 million years of evolution separating the two species. Are these circuits structurally similar because they are easy to evolve, or because they are optimal for odor sensing? We modeled an artificial neural network after the fly olfactory system and asked whether the same structural principles can also emerge in the machine when it learns to perform complex odor classification.</p>
+
+<p>We focus on flies because their olfactory systems are simple and well-characterized. Shown below is a layout of the olfactory system (courtesy of Daisuke Hattori). Olfactory sensory neurons (OSNs) that express the same olfactory receptor (OR) project onto spatially invariant glomeruli. Projection neurons (PNs) sample from a single glomerulus and in turn innervate Kenyon cells (KCs), which integrate input from random combinations of glomeruli to encode odor identity.</p>
+
+<div id="wrapper">
+    <video id="home1" width="800" height="400" autoplay="" loop="" controls="" muted="">
+      <source src="/assets/movies/fly.mp4" type="
+      video/mp4" />
+    </video>
+    <div class="clear"></div>
+</div>
+
+<p>In our model network, ORN-to-PN connections are first initialized to be dense and random but are allowed to be modified by training. Surprisingly, glomeruli with singular connectivity emerge when the network learns to classify odors: each PN strengthens incoming connections from ORNs expressing a given OR and weakens connections from ORNs expressing all other ORs. Moreover, connections segregate until every PN receives input from a different OR. We further show that a network whose ORN-to-PN connections are constrained to be all-to-all and random performs worse than this determined pathway. Moreover, we find that classification performance plateaus when the number of PNs and KCs in our network increase past the amount present within the fly olfactory system. This study indicates that the machine evolves a set of structural principles similar to that observed in the olfactory systems of flies and mice, and may provide insight into the functional logic of these organization.</p>
+
+<div id="wrapper">
+    <video id="home1" width="400" height="400" autoplay="" loop="" controls="" muted="">
+      <source src="/assets/movies/weights.mp4" type="
+      video/mp4" />
+    </video>
+    <div class="clear"></div>
+</div>
+
+
+      </section>
+
+      <footer>
+        <p><small>Adapted from: Minimal Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+
+    </div>
+  </body>
+</html>
