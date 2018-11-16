@@ -219,3 +219,5 @@ footer { width: 270px; float: left; position: fixed; bottom: 50px; -webkit-font-
 #home2 { width: auto; height: 200px; float: left; }
 
 .clear { clear: both; }
+
+#video { object-fit: initial; width: 500px; }
