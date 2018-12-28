@@ -37,7 +37,9 @@ Project: I assisted my post-doctoral mentor, Yexica Aponte, to ask whether optog
 ___
 ## Publications
 
-* **Wang P.Y.**, Boboila C., Shamash P., Abbott L.F, Axel R., Imposing structure on odor representations during associative learning in the orbitofrontal and medial prefrontal cortices *(submitting to __Cell__)*
+* **Wang PY**, Boboila C, Shamash P, Abbott LF, Axel R. Imposing structure on odor representations during associative learning in the orbitofrontal and medial prefrontal cortices *(In prep)*
+
+* Yang GR\*, **Wang PY\***, Axel R, LF Abbott (\*equal contribution), The logic of the olfactory system. *(In prep)*
 
 ___
 ## Presentations
@@ -50,7 +52,7 @@ ___
 ___
 ## Conference Abstracts
 
-* Guangyu Robert Yang**\***, **Peter Yiliu Wang\***, Richard Axel, L.F. Abbott (\*equal contribution). Recovering the Connectivity of Olfactory Systems Using Artificial Neural Networks. *Computational and Systems Neuroscience, Portugal (2019)*
+* Guangyu Robert Yang\*, **PY Wang\***, Richard Axel, L.F. Abbott (\*equal contribution). Recovering the connectivity of olfactory systems using artificial neural networks. *Computational and Systems Neuroscience, Portugal (2019)*
 
 * **PY Wang**, C Boboila, P Shamash, N Stein, LF Abbott, R Axel. Imposing structure on odor representations in orbitofrontal and medial prefrontal cortex during learning. *Cold Spring Harbor Meeting on Order and Disorder, Cold Spring Harbor, NY (2018)*
 
@@ -69,6 +71,7 @@ ___
 
 * Teaching assistant for BioNB4110: Undergraduate Neuroscience Journal Club. Helped lead a group of 10-15 students on paper discussions (2009-2011)
 
+<!--
 ___
 ## Awards
 
@@ -76,9 +79,4 @@ ___
 * IBRO Travel Award (2018) <br/>
 * Howard Hughes Summer Scholar (2011) <br/>
 * Cornell Arts and Science College Scholar Program (2007-2011)
-
-<!-- ## Interests
-
-* How does structure arise in artificial and biological neural networks, and what function does such structure serve in processing and representing information?
-* Biologically plausible local learning rules[<sup>1</sup>](https://www.sciencedirect.com/science/article/pii/S0959438818300485)<sup>,</sup>
-[<sup>2</sup>](https://www.nature.com/articles/ncomms13276) -->
+-->
