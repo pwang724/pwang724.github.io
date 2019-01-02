@@ -37,9 +37,9 @@ Project: I assisted my post-doctoral mentor, Yexica Aponte, to ask whether optog
 ___
 ## Publications
 
-* **Wang PY**, Boboila C, Shamash P, Abbott LF, Axel R. Imposing structure on odor representations during associative learning in the orbitofrontal and medial prefrontal cortices *(In prep)*
+* **Wang PY**, Boboila C, Shamash P, Abbott LF, Axel R. Imposing structure on odor representations during associative learning in the orbitofrontal and medial prefrontal cortices. *(In prep)*
 
-* Yang GR\*, **Wang PY\***, Axel R, LF Abbott (\*equal contribution), The logic of the olfactory system. *(In prep)*
+* **Wang PY\***, Yang GR\*, Axel R, LF Abbott (\*equal contribution). The logic of the olfactory system. *(In prep)*
 
 ___
 ## Presentations
@@ -70,13 +70,3 @@ ___
 * President, Cornell Neuroscience Club. Published an annual undergraduate neuroscience journal, invited professors to give talks, and organized yearly trips to Society for Neuroscience (2009-2011)
 
 * Teaching assistant for BioNB4110: Undergraduate Neuroscience Journal Club. Helped lead a group of 10-15 students on paper discussions (2009-2011)
-
-<!--
-___
-## Awards
-
-* CSHL Travel Award (2018) <br/>
-* IBRO Travel Award (2018) <br/>
-* Howard Hughes Summer Scholar (2011) <br/>
-* Cornell Arts and Science College Scholar Program (2007-2011)
--->
