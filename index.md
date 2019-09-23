@@ -17,7 +17,7 @@ Advisors:
 [Richard Axel](https://zuckermaninstitute.columbia.edu/richard-axel-md) and
 [Larry Abbott](https://zuckermaninstitute.columbia.edu/larry-f-abbott-phd)
 
-Project: I asked how associations are learned by tracking the population activity of multiple cognitive brain regions during learning. I found that the orbitofrontal cortex encodes predictive value and is important during initial learning. It then transfers what it has learned to the medial prefrontal cortex for long-term storage. See more [here](/project.md)
+Project: I asked how associations are learned by tracking the population activity of multiple cognitive brain regions during learning. I found that the orbitofrontal cortex and the medial prefrontal cortex encode predictive value and functions sequentially during learning. See more [here](/project.md)
 
 __2011-2012__<br/>
 MIT<br/>
@@ -37,13 +37,14 @@ Project: I assisted my post-doctoral mentor, Yexica Aponte, to ask whether optog
 ___
 ## Publications
 
-* **Wang PY**, Boboila C, Shamash P, Abbott LF, Axel R. Imposing structure on odor representations during associative learning in the orbitofrontal and medial prefrontal cortices. *(In prep)*
+* **Wang PY\***, Yang GR\*, Axel R, LF Abbott (\*equal contribution). Evolving the olfactory system. *(In prep)*
 
-* **Wang PY\***, Yang GR\*, Axel R, LF Abbott (\*equal contribution). The logic of the olfactory system. *(In prep)*
+* **Wang PY**, Boboila C, Shamash P, Abbott LF, Axel R. The Imposition of Value on Odor: Transient and Persistent Representations of Odor Value in Prefrontal Cortex. [*(Submitted)*](https://www.biorxiv.org/content/10.1101/753426v1)
 
 ___
-## Presentations
+## Invited Talks
 
+* Cognitive Computational Neuroscience, Berlin (2019)
 * Cold Spring Harbor Laboratory: Neuronal Circuits, New York (2018)
 * Columbia Neuroscience Conference, New York (2018)
 * Cold Spring Harbor Asia: Neural Circuits, Suzhou, China (2017)
@@ -52,7 +53,7 @@ ___
 ___
 ## Conference Abstracts
 
-* GR Yang\*, **PY Wang\***, R Axel, LF Abbott (\*equal contribution). Recovering the connectivity of olfactory systems using artificial neural networks. *Computational and Systems Neuroscience, Portugal (2019)*
+* GR Yang\*, **PY Wang\***, Y Sun, A Litwin-Kumar, R Axel, LF Abbott (\*equal contribution). Evolving the olfactory system. *Cognitive Computational Neuroscience, Berlin (2019)*
 
 * **PY Wang**, C Boboila, P Shamash, N Stein, LF Abbott, R Axel. Imposing structure on odor representations in orbitofrontal and medial prefrontal cortex during learning. *Cold Spring Harbor Meeting on Order and Disorder, Cold Spring Harbor, NY (2018)*
 
