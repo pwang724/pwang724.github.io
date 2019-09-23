@@ -22,7 +22,7 @@ Advisors:
 [Richard Axel](https://zuckermaninstitute.columbia.edu/richard-axel-md) and
 [Larry Abbott](https://zuckermaninstitute.columbia.edu/larry-f-abbott-phd)
 
-Project: I tracked the activities of hundreds of neurons in multiple brain regions during learning using two-photon imaging. I found that the orbitofrontal cortex and the medial prefrontal cortex encode predictive value and function sequentially to consolidate learning. See more [here](/project.md)
+Project: I tracked the activities of hundreds of neurons in multiple brain regions during learning using two-photon imaging. I found that the orbitofrontal cortex and the medial prefrontal cortex encode predictive value and function sequentially to consolidate the learning of new associations. See more [here](/project.md)
 
 __2011-2012__<br/>
 MIT<br/>
@@ -42,13 +42,13 @@ Project: I assisted my post-doctoral mentor, Yexica Aponte, to ask whether optog
 ___
 ## Publications
 
-* **PY Wang\***, GR Yang\*, R Axel, LF Abbott. Evolving the olfactory system. *(In prep)*
+* GR Yang\*, **PY Wang\***, R Axel, LF Abbott. Evolving the olfactory system. *(In prep)*
 
 * **PY Wang\***, CJ Cueva\*, M Chin\*, XX Wei. Evolving the head direction system by optimization of recurrent neural networks. *(In prep)*
 
 * **PY Wang\***, C Boboila\*, P Shamash, Z Wu, NP Stein, LF Abbott, R Axel. The Imposition of Value on Odor: Transient and Persistent Representations of Odor Value in Prefrontal Cortex. [*(Submitted)*](https://www.biorxiv.org/content/10.1101/753426v1)
 
-  \*equal contribution
+  \*co-first
 
 ___
 ## Invited Talks
@@ -75,8 +75,8 @@ ___
 ___
 ## Teaching
 
-* Teaching fellow for GU4004: Cellular and Molecular Neuroscience. Led weekly paper discussions for a group of 30 students (2013)
+* Teaching fellow for GU4004: Cellular and Molecular Neuroscience (2013)
 
-* President, Cornell Neuroscience Club. Published an annual undergraduate neuroscience journal, invited professors to give talks, and organized yearly trips to Society for Neuroscience (2009-2011)
+* President, Cornell Neuroscience Club (2009-2011)
 
-* Teaching assistant for BioNB4110: Undergraduate Neuroscience Journal Club. Helped lead a group of 10-15 students on paper discussions (2009-2011)
+* Teaching assistant for BioNB4110: Undergraduate Neuroscience Journal Club  (2009-2011)

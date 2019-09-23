@@ -42,7 +42,7 @@ Project: I assisted my post-doctoral mentor, Yexica Aponte, to ask whether optog
 ___
 ## Publications
 
-* **PY Wang\***, GR Yang\*, R Axel, LF Abbott. Evolving the olfactory system. *(In prep)*
+* GR Yang\*, **PY Wang\***, R Axel, LF Abbott. Evolving the olfactory system. *(In prep)*
 
 * **PY Wang\***, CJ Cueva\*, M Chin\*, XX Wei. Evolving the head direction system by optimization of recurrent neural networks. *(In prep)*
 
@@ -75,8 +75,8 @@ ___
 ___
 ## Teaching
 
-* Teaching fellow for GU4004: Cellular and Molecular Neuroscience. Led weekly paper discussions for a group of 30 students (2013)
+* Teaching fellow for GU4004: Cellular and Molecular Neuroscience (2013)
 
-* President, Cornell Neuroscience Club. Published an annual undergraduate neuroscience journal, invited professors to give talks, and organized yearly trips to Society for Neuroscience (2009-2011)
+* President, Cornell Neuroscience Club (2009-2011)
 
-* Teaching assistant for BioNB4110: Undergraduate Neuroscience Journal Club. Helped lead a group of 10-15 students on paper discussions (2009-2011)
+* Teaching assistant for BioNB4110: Undergraduate Neuroscience Journal Club  (2009-2011)
