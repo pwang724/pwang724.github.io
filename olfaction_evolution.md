@@ -6,9 +6,9 @@ layout: default
 
 [*Conference Abstract*](https://ccneuro.org/2019/Papers/ViewPapers.asp?PaperNum=1355)
 
-The anatomic and functional organization of the olfactory system is similar in flies and mice despite 600 million years of evolution separating the two species. This is an astounding fact, given that the circuits are constructed from different gene sets. Are these circuits structurally similar because they are easy to evolve, or because they are optimal for odor sensing? We ([Robert Guangyu Yang](https://www.simonsfoundation.org/team/robert-guangyu-yang/) and I) modeled an artificial neural network after the fly olfactory system and asked whether the machine can evolve the same structural principles if we trained it to sense and distinguish odors.
+The anatomic and functional organization of the olfactory system is similar in flies and mice despite 600 million years of evolution separating the two species. This is an astounding fact, given that the circuits are constructed from different gene sets. Are these circuits structurally similar because they are easy to evolve, or because they are optimal for odor sensing? We ([Robert Guangyu Yang](https://www.simonsfoundation.org/team/robert-guangyu-yang/) and I) modeled an artificial neural network after the fly olfactory system and asked whether the machine can evolve the same structural principles when trained to distinguish odors.
 
-We focus on flies because their olfactory systems are simple and well-characterized. Shown below is a layout of the fly olfactory system (the beautiful images are courtesy of Daisuke Hattori). Olfactory sensory neurons (also known as olfactory receptor neurons, or ORNs) reside in the sensory epithelium (left image). All ORNs that express the same olfactory receptor (OR) project onto spatially invariant glomeruli (right image). Projection neurons (PNs) sample from a single glomerulus and in turn innervate Kenyon cells (KCs), which integrate input from random combinations of glomeruli to encode odor identity. Exhaustive experiments have shown that all KCs receive a random 7 PN inputs out of a possible of 50.
+We focus on flies because their olfactory systems are simple and well-characterized. Shown below is a layout of the fly olfactory system (the beautiful images are courtesy of Daisuke Hattori). Olfactory sensory neurons (also known as olfactory receptor neurons, or ORNs) reside in the sensory epithelium (left image). All ORNs that express the same olfactory receptor (OR) project onto spatially invariant glomeruli (right image). Projection neurons (PNs) sample from a single glomerulus and in turn innervate Kenyon cells (KCs), which integrate input from random combinations of glomeruli to encode odor identity. Exhaustive experiments have shown that on average, each KC receives a random 7 PN out of a possible 50 PN inputs.
 
 <p align="center">
     <video id="video" width="500" autoplay loop controls muted="">
@@ -17,7 +17,7 @@ We focus on flies because their olfactory systems are simple and well-characteri
     <div class="clear"></div>
 </p>
 
-The anatomical description of the olfactory system translates quite well to a simple feed-forward network. So we modeled the olfactory system as a three-layer feed-forward network and trained it to classify odors. In our model network, all connections are initialized to be dense and random but are allowed to be modified by training.
+The anatomical description of the olfactory system translates quite well to a simple feed-forward network. So we modeled the olfactory system as a three-layer feed-forward network and trained it to classify odors. All connections are initialized to be dense and random but are allowed to be modified by training.
 
 <p align="center">
   <img src="/assets/img/fly_model.png" alt="Logo" width="250" align="middle"/>
