@@ -22,7 +22,7 @@ Advisors:
 [Richard Axel](https://zuckermaninstitute.columbia.edu/richard-axel-md) and
 [Larry Abbott](https://zuckermaninstitute.columbia.edu/larry-f-abbott-phd)
 
-Project: I tracked the activities of hundreds of neurons in multiple brain regions during learning using two-photon imaging. I found that the orbitofrontal cortex and the medial prefrontal cortex encode predictive value and function sequentially to consolidate learning. See more [here](/project.md)
+Project: I tracked the activities of hundreds of neurons in multiple brain regions during learning using two-photon imaging. I found that the orbitofrontal cortex and the medial prefrontal cortex encode predictive value and function sequentially to consolidate the learning of new associations. See more [here](/project.md)
 
 __2011-2012__<br/>
 MIT<br/>
@@ -48,7 +48,7 @@ ___
 
 * **PY Wang\***, C Boboila\*, P Shamash, Z Wu, NP Stein, LF Abbott, R Axel. The Imposition of Value on Odor: Transient and Persistent Representations of Odor Value in Prefrontal Cortex. [*(Submitted)*](https://www.biorxiv.org/content/10.1101/753426v1)
 
-  \*equal contribution
+  \*co-first
 
 ___
 ## Invited Talks
