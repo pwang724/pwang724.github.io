@@ -25,8 +25,6 @@ The anatomical description of the olfactory system translates quite well to a si
 
 Surprisingly, glomeruli emerge between ORNs and PNs when the network learns to classify odors: each PN strengthens incoming connections from ORNs expressing a given OR and weakens connections from ORNs expressing all other ORs. Moreover, every PN receives input from a different OR.
 
-The machine also learns to sparsen PN-to-KC connections. After training, KCs receives a random set of 7 PN inputs, which is the biological number in the fruit fly olfactory system. Quite astoundingly, the machine learns to evolve a set of structural principles similar to that observed in the olfactory systems of flies and mice.
-
 <p align="center">
     <video id="video" width="200" autoplay loop controls muted="">
       <source src="/assets/movies/weights_glo.mp4" width="500" height="500" type="
@@ -34,6 +32,8 @@ The machine also learns to sparsen PN-to-KC connections. After training, KCs rec
     </video>
     <div class="clear"></div>
 </p>
+
+The machine also learns to sparsen PN-to-KC connections. After training, KCs receives a random set of 7 PN inputs, which is the biological number in the fruit fly olfactory system. Quite astoundingly, the machine learns to evolve a set of structural principles similar to that observed in the olfactory systems of flies and mice.
 
 <p align="center">
     <video id="video" width="200" autoplay loop controls muted="">

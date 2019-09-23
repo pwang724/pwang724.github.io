@@ -22,7 +22,7 @@ Advisors:
 [Richard Axel](https://zuckermaninstitute.columbia.edu/richard-axel-md) and
 [Larry Abbott](https://zuckermaninstitute.columbia.edu/larry-f-abbott-phd)
 
-Project: I tracked the activities of hundreds of neurons in multiple brain regions during learning using two-photon imaging. I found that the orbitofrontal cortex and the medial prefrontal cortex encode predictive value and function sequentially during learning. See more [here](/project.md)
+Project: I tracked the activities of hundreds of neurons in multiple brain regions during learning using two-photon imaging. I found that the orbitofrontal cortex and the medial prefrontal cortex encode predictive value and function sequentially to consolidate learning. See more [here](/project.md)
 
 __2011-2012__<br/>
 MIT<br/>
