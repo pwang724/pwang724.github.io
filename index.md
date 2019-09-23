@@ -42,9 +42,9 @@ Project: I assisted my post-doctoral mentor, Yexica Aponte, to ask whether optog
 ___
 ## Publications
 
-* GR Yang\*, **PY Wang\***, R Axel, LF Abbott. Evolving the olfactory system. *(In prep)*
+* GR Yang\*, **PY Wang\***, Y Sun, A Litwin-Kumar, R Axel, LF Abbott. Evolving the Olfactory System. *(In prep)*
 
-* **PY Wang\***, CJ Cueva\*, M Chin\*, XX Wei. Evolving the head direction system by optimization of recurrent neural networks. *(In prep)*
+* **PY Wang\***, CJ Cueva\*, M Chin\*, XX Wei. Evolving the Head Direction System by Optimization of Recurrent Neural Networks. *(In prep)*
 
 * **PY Wang\***, C Boboila\*, P Shamash, Z Wu, NP Stein, LF Abbott, R Axel. The Imposition of Value on Odor: Transient and Persistent Representations of Odor Value in Prefrontal Cortex. [*(Submitted)*](https://www.biorxiv.org/content/10.1101/753426v1)
 

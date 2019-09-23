@@ -16,10 +16,10 @@
 <meta property="og:url" content="http://localhost:4000/olfaction_evolution.html" />
 <meta property="og:site_name" content="Peter Y. Wang" />
 <script type="application/ld+json">
-{"url":"http://localhost:4000/olfaction_evolution.html","headline":"Evolving Olfactory Circuitry in the Machine","description":"PhD in Neuroscience","@type":"WebPage","@context":"http://schema.org"}</script>
+{"url":"http://localhost:4000/olfaction_evolution.html","description":"PhD in Neuroscience","headline":"Evolving Olfactory Circuitry in the Machine","@type":"WebPage","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=1a9e4df66e688c320867c922fdb4e172ed55f63b">
+    <link rel="stylesheet" href="/assets/css/style.css?v=26de52fe77bc7e1fe46b5e0cf0191628b158b188">
   </head>
 
   <body>
@@ -39,7 +39,7 @@
           <br>
           <a href="/project">Value Computation in the Brain</a><br>
           <a href="/olfaction_evolution">Evolving Olfactory Circuitry in the Machine</a><br>
-          <a href="/head_direction">Angular Integration in the Machine </a><br>
+          <a href="/head_direction">Evolving Angular Integration in the Machine </a><br>
           <!-- <br> -->
           <!-- <a href="/index_2017">Blog Posts from 2017</a><br> -->
           <!-- <a href="/index_2018">Blog Posts from 2018</a> -->
@@ -52,9 +52,11 @@
 
       <h2 id="evolving-olfactory-circuitry-in-the-machine">Evolving Olfactory Circuitry in the Machine</h2>
 
-<p>The anatomic and functional organization of the olfactory system is similar in flies and mice despite 600 million years of evolution separating the two species. This is an astounding fact, since the circuits are constructed from different gene sets. Are these circuits structurally similar because they are easy to evolve, or because they are optimal for odor sensing? We (<a href="https://www.simonsfoundation.org/team/robert-guangyu-yang/">Robert Guangyu Yang</a> and I) modeled an artificial neural network after the fly olfactory system and asked whether the machine can evolve the same structural principles if we train it to sense and distinguish odors.</p>
+<p><a href="https://ccneuro.org/2019/Papers/ViewPapers.asp?PaperNum=1355"><em>Conference Abstract and Manuscript</em></a></p>
 
-<p>We focus on flies because their olfactory systems are simple and well-characterized. Shown below is a layout of the fly olfactory system (the beautiful images are courtesy of Daisuke Hattori). Olfactory sensory neurons (also known as olfactory receptor neurons, or ORNs) reside in the sensory epithelium (left image). All ORNs that express the same olfactory receptor (OR) project onto spatially invariant glomeruli (right image). Projection neurons (PNs) sample from a single glomerulus and in turn innervate Kenyon cells (KCs), which integrate input from random combinations of glomeruli to encode odor identity.</p>
+<p>The anatomic and functional organization of the olfactory system is similar in flies and mice despite 600 million years of evolution separating the two species. This is an astounding fact, given that the circuits are constructed from different gene sets. Are these circuits structurally similar because they are easy to evolve, or because they are optimal for odor sensing? We (<a href="https://www.simonsfoundation.org/team/robert-guangyu-yang/">Robert Guangyu Yang</a> and I) modeled an artificial neural network after the fly olfactory system and asked whether the machine can evolve the same structural principles when trained to distinguish odors.</p>
+
+<p>We focus on flies because their olfactory systems are simple and well-characterized. Shown below is a layout of the fly olfactory system (the beautiful images are courtesy of Daisuke Hattori). Olfactory sensory neurons (also known as olfactory receptor neurons, or ORNs) reside in the sensory epithelium (left image). All ORNs that express the same olfactory receptor (OR) project onto spatially invariant glomeruli (right image). Projection neurons (PNs) sample from a single glomerulus and in turn innervate Kenyon cells (KCs), which integrate input from random combinations of glomeruli to encode odor identity. Exhaustive experiments have shown that on average, each KC receives a random 7 out of a possible 50 PN inputs.</p>
 
 <p align="center">
     <video id="video" width="500" autoplay="" loop="" controls="" muted="">
@@ -63,23 +65,33 @@
     <div class="clear"></div>
 </p>
 
-<p>The anatomical description of the olfactory system translates quite well to a simple multilayer perception (MLP). So we modeled the olfactory system as a three-layer MLP and trained it to classify odors. In our model network, ORN-to-PN connections are first initialized to be dense and random but are allowed to be modified by training.</p>
+<p>The anatomical description of the olfactory system translates quite well to a simple feed-forward network. So we modeled the olfactory system as a three-layer feed-forward network and trained it to classify odors. All connections are initialized to be dense, random, and unstructured, but are allowed to be modified by training. What solution does the machine learn to solve odor classification?</p>
 
 <p align="center">
   <img src="/assets/img/fly_model.png" alt="Logo" width="250" align="middle" />
 </p>
 
-<p>Surprisingly, glomeruli emerge when the network learns to classify odors: each PN strengthens incoming connections from ORNs expressing a given OR and weakens connections from ORNs expressing all other ORs. Moreover, connections segregate until every PN receives input from a different OR. Quite astoundingly, the machine learns to evolve a set of structural principles similar to that observed in the olfactory systems of flies and mice.</p>
+<p>Surprisingly, glomeruli emerge between ORNs and PNs when the network learns to classify odors: each PN strengthens incoming connections from ORNs expressing a given OR and weakens connections from ORNs expressing all other ORs. Moreover, every PN receives input from a different OR.</p>
 
 <p align="center">
     <video id="video" width="200" autoplay="" loop="" controls="" muted="">
-      <source src="/assets/movies/weights.mp4" width="500" height="500" type="
+      <source src="/assets/movies/weights_glo.mp4" width="500" height="500" type="
       video/mp4" />
     </video>
     <div class="clear"></div>
 </p>
 
-<p>We can now play with all kinds of parameters in the machine model. When we set the number of PNs and KCs in our network to be greater than the amount present within the fly olfactory system, the machine does not do any better at classifying odors. So given limited headspace, the fly olfactory system has evolved an optimal solution for odor sensing.</p>
+<p>The machine also learns to sparsen PN-to-KC connections. After training, KCs receives a random set of 7 PN inputs, which is the biological number in the fruit fly olfactory system. Quite astoundingly, the machine learns to evolve a set of structural principles similar to that observed in the olfactory systems of flies and mice.</p>
+
+<p align="center">
+    <video id="video" width="200" autoplay="" loop="" controls="" muted="">
+      <source src="/assets/movies/weights_kc.mp4" width="500" height="500" type="
+      video/mp4" />
+    </video>
+    <div class="clear"></div>
+</p>
+
+<p>These results appear to be extremely robust to network parameters, and also emerge even when the number of layers or the number of neurons per layer are not constrained. So given limited headspace, the fly olfactory system has evolved an optimal solution for odor sensing. To see why, see the conference paper above.</p>
 
 
       </section>
