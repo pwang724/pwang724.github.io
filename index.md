@@ -13,16 +13,15 @@ ___
 __2018-2019__<br/>
 __Postdoctoral Fellow__<br/>
 Columbia University<br/>
-Project: I used artificial neural networks to study the function of biological circuits. I found that the machine learns the same architecture as the [head-direction system](/head_direction.md) when trained to navigate, and learns the same architecture as the [olfactory system](/olfaction_evolution.md) when trained to smell
+Project: the machine learns the same architecture as the [head-direction system](/head_direction.md) when trained to navigate, and learns the same architecture as the [olfactory system](/olfaction_evolution.md) when trained to smell
 
 __2012-2018__<br/>
 __PhD in Neuroscience__<br/>
 Columbia University<br/>
 Advisors:
 [Richard Axel](https://zuckermaninstitute.columbia.edu/richard-axel-md) and
-[Larry Abbott](https://zuckermaninstitute.columbia.edu/larry-f-abbott-phd)
-
-Project: I tracked the activities of hundreds of neurons in multiple brain regions during learning using two-photon imaging. I found that the orbitofrontal cortex and the medial prefrontal cortex encode predictive value and function sequentially to consolidate the learning of new associations. See more [here](/project.md)
+[Larry Abbott](https://zuckermaninstitute.columbia.edu/larry-f-abbott-phd) <br/>
+Project: the orbitofrontal cortex and the medial prefrontal cortex encode predictive value and function sequentially to consolidate the learning of new associations. See more [here](/project.md)
 
 __2011-2012__<br/>
 MIT<br/>
@@ -56,27 +55,19 @@ ___
 * Cognitive Computational Neuroscience, Berlin (2019)
 * Cold Spring Harbor Laboratory: Neuronal Circuits, New York (2018)
 * Columbia Neuroscience Conference, New York (2018)
-* Cold Spring Harbor Asia: Neural Circuits, Suzhou, China (2017)
 * Columbia Neuroscience Conference, New York (2016)
 
 ___
-## Conference Abstracts
+## Conference Publications and Posters
 
-* GR Yang\*, **PY Wang\***, Y Sun, A Litwin-Kumar, R Axel, LF Abbott (\*equal contribution). Evolving the olfactory system. *Cognitive Computational Neuroscience, Berlin (2019)*
-
-* **PY Wang**, C Boboila, P Shamash, N Stein, LF Abbott, R Axel. Imposing structure on odor representations in orbitofrontal and medial prefrontal cortex during learning. *Cold Spring Harbor Meeting on Order and Disorder, Cold Spring Harbor, NY (2018)*
-
-* **PY Wang**, C Boboila, P Shamash, LF Abbott, R Axel. Imposing structure on odor representations in orbitofrontal and medial prefrontal cortex during learning. *Research in Encoding and Decoding of Neural Ensembles (AREADNE), Greece (2018)*
-
-* **PY Wang**, C Boboila, P Shamash, LF Abbott, R Axel. Imposing structure on odor representations in orbitofrontal and medial prefrontal cortex during learning. *Annual Canadian Neuroscience Conference, Canada (2018)*
-
-* C Boboila, **PY Wang**, N Stein, LF Abbott, R Axel. Orbitofrontal cortex is necessary for task acquisition during olfactory learning. *Cold Spring Harbor Asia Meeting, China (2017)*
+* NeurIPS Neuro AI Workshop, Vancouver, Canada (2019)
+* Cold Spring Harbor Laboratory: Order and Disorder, NY (2018)
+* Research in Encoding and Decoding of Neural Ensembles (AREADNE), Greece (2018)
+* Annual Canadian Neuroscience Conference, Vancouver, Canada (2018)
 
 ___
 ## Teaching
 
 * Teaching fellow for GU4004: Cellular and Molecular Neuroscience (2013)
-
 * President, Cornell Neuroscience Club (2009-2011)
-
 * Teaching assistant for BioNB4110: Undergraduate Neuroscience Journal Club  (2009-2011)
