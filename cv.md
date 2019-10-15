@@ -13,7 +13,7 @@ ___
 __2018-2019__<br/>
 __Postdoctoral Fellow__<br/>
 Columbia University<br/>
-Project: the machine learns the same architecture as the [head-direction system](/head_direction.md) when trained to navigate, and learns the same architecture as the [olfactory system](/olfaction_evolution.md) when trained to smell
+Project: artificial neural networks learn the same architecture as the [head-direction system](/head_direction.md) when trained to navigate, and learn the same architecture as the [olfactory system](/olfaction_evolution.md) when trained to smell
 
 __2012-2018__<br/>
 __PhD in Neuroscience__<br/>

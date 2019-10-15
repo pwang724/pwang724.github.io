@@ -13,14 +13,15 @@ ___
 __2018-2019__<br/>
 __Postdoctoral Fellow__<br/>
 Columbia University<br/>
-Project: the machine learns the same architecture as the [head-direction system](/head_direction.md) when trained to navigate, and learns the same architecture as the [olfactory system](/olfaction_evolution.md) when trained to smell
+Project: artificial neural networks learn the same architecture as the [head-direction system](/head_direction.md) when trained to navigate, and learn the same architecture as the [olfactory system](/olfaction_evolution.md) when trained to smell
 
 __2012-2018__<br/>
 __PhD in Neuroscience__<br/>
 Columbia University<br/>
 Advisors:
 [Richard Axel](https://zuckermaninstitute.columbia.edu/richard-axel-md) and
-[Larry Abbott](https://zuckermaninstitute.columbia.edu/larry-f-abbott-phd) <br/>
+[Larry Abbott](https://zuckermaninstitute.columbia.edu/larry-f-abbott-phd)
+
 Project: the orbitofrontal cortex and the medial prefrontal cortex encode predictive value and function sequentially to consolidate the learning of new associations. See more [here](/project.md)
 
 __2011-2012__<br/>
