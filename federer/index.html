@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Federer, Syllable by Syllable</title>
-<meta name="description" content="Tracking Federer’s evolution between 2003 and 2019 through simple unsupervised and supervised methods.">
-<meta property="og:title" content="Federer, Syllable by Syllable"><meta property="og:description" content="Tracking Federer’s evolution between 2003 and 2019 through simple unsupervised and supervised methods.">
+<meta name="description" content="Tracking Federer’s evolution between 2003 and 2019 through unsupervised and supervised methods.">
+<meta property="og:title" content="Federer, Syllable by Syllable"><meta property="og:description" content="Tracking Federer’s evolution between 2003 and 2019 through unsupervised and supervised methods.">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;800&family=Geist+Mono:wght@400&display=swap">
@@ -26,6 +26,8 @@
     <div class="prose wrap">
 <style>
 .fed { --bg: var(--paper); --surface: #fff; --muted: var(--gray); --faint: #9a9aa2; --accent: #c2410c; --blue: #2563eb; }
+.fed section.intro { padding-top: 24px; padding-bottom: 0; }
+.fed section.intro + section.change { padding-top: 32px; }
 .fed section.change { padding-top: 40px; }
 .fed nav.cats { position: sticky; top: 0; z-index: 2; background: var(--bg); display: flex; gap: 6px; flex-wrap: wrap; padding-top: 14px; padding-bottom: 14px; margin-top: 24px; border-bottom: 1px solid var(--line); box-shadow: 0 0 0 100vmax var(--bg); clip-path: inset(0 -100vmax); }
 .fed nav.cats button { font: 500 15px var(--sans); color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 0; padding: 7px 16px; cursor: pointer; }
@@ -173,7 +175,7 @@
 </style>
 <div class="fed">
 <nav class="wrap cats" role="tablist"><button role="tab" data-cat="syllables">Syllables</button><button role="tab" data-cat="then">Then vs Now</button><button role="tab" data-cat="methods">Methods</button></nav>
-<div class="cat" id="syllables" role="tabpanel">
+<div class="cat" id="syllables" role="tabpanel"><section class="wrap intro"><p>We used an unsupervised algorithm borrowed from neuroscience (<a href="https://doi.org/10.1038/s41592-024-02318-2" target="_blank" rel="noopener noreferrer">keypoint-MoSeq</a>) to split and cluster Federer's movements into short, repeated pieces called behavioral "syllables". This was done from his joints alone, with zero knowledge of tennis. Some of these syllables correspond to conventional tennis strokes, like the serve or discrete parts of forehands and backhands, but others, like "Stroll, head down", are perhaps less obvious and more interesting.</p><p>Each dot on the map below is one instance of a syllable, and instances are clustered together by similarity. Click a dot and drag the circle to see what lives in different parts of the map. You can drag its edge and expand to include more instances, or contract it to narrow in. Colour by year to see which movements belong to which era.</p></section>
 <div class="explorer" data-src="data.json" data-unit="syllables">
   <div class="ex-bar">
     <div class="ex-ctl"><span class="ex-lab">Colour by</span><div class="seg ex-colour"><button data-v="cluster" aria-pressed="true">Syllable</button><button data-v="year" aria-pressed="false">Year</button><button data-v="speed" aria-pressed="false">Speed</button></div></div>
@@ -203,7 +205,7 @@
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script src="explorer/explorer.js?v=1ed09bb6ce"></script></div>
-<div class="cat" id="then" role="tabpanel">
+<div class="cat" id="then" role="tabpanel"><section class="wrap intro"><p>We were also curious whether joints can be used to find meaningful differences in his strokes across different epochs of his career. We first labelled his strokes into serves, forehands and backhands, and then used a lot of Opus to perform joint analysis. Some of these changes were not obvious to us before measuring, such as his forehand stance closing by about 15°. Some other examples are shown below.</p><p>With the same data we can measure footwork speed and court coverage, see how his patterns shift under pressure, or ask which stroke sequences come before a won or lost point, and do this across different players and compare styles. This is just the tip.</p></section>
 <section class="wrap change">
   <h3 class="sub-h">Forehand: more closed stance</h3>
   <p>Feet angle was 49° in 2003–07, 65° in 2017–19.</p>
