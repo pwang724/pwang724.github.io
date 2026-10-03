@@ -1,0 +1,17 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Moved to offpolicyinc.com</title>
+<meta name="robots" content="noindex">
+<script>
+  // Every page that used to live on pwang724.github.io now lives on offpolicyinc.com. GitHub serves this page for
+  // any address here, and it sends the visitor to the new one. Edit ROUTES to add a project.
+  var ROUTES = [
+    ['wc3env', 'https://offpolicyinc.com/work/wc3env/', false],
+    ['fly-circuit-exploration', 'https://offpolicyinc.com/work/fast-weights/notebook/', true],  // keeps the page path
+    ['tennis-skeleton-quiz', 'https://offpolicyinc.com/work/skeleton-tennis/', false]
+  ];
+  var parts = location.pathname.replace(/^\/+/, '').split('/'), to = 'https://offpolicyinc.com/';
+  ROUTES.forEach(function (r) { if (parts[0] === r[0]) to = r[1] + (r[2] ? parts.slice(1).join('/') + location.search : ''); });
+  location.replace(to + location.hash);
+</script>
+<p>This page moved to <a href="https://offpolicyinc.com/">offpolicyinc.com</a>.</p>
