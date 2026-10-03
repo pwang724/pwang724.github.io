@@ -1,0 +1,969 @@
+{
+ "levels": [
+  {
+   "level": 1,
+   "rounds": [
+    {
+     "clips": [
+      "clips/l1_federer_nadal_005445.mp4",
+      "clips/l1_federer_nadal_003600.mp4"
+     ],
+     "match": "Australian Open 2017 final",
+     "players": [
+      {
+       "name": "Roger Federer"
+      },
+      {
+       "name": "Rafael Nadal"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l1_djokovic_federer_009727.mp4",
+      "clips/l1_djokovic_federer_016974.mp4"
+     ],
+     "match": "Wimbledon 2019 final",
+     "players": [
+      {
+       "name": "Novak Djokovic"
+      },
+      {
+       "name": "Roger Federer"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l1_djokovic_federer_008154.mp4",
+      "clips/l1_djokovic_federer_004504.mp4"
+     ],
+     "match": "Wimbledon 2019 final",
+     "players": [
+      {
+       "name": "Novak Djokovic"
+      },
+      {
+       "name": "Roger Federer"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l1_djokovic_federer_008768.mp4",
+      "clips/l1_djokovic_federer_005184.mp4"
+     ],
+     "match": "Wimbledon 2019 final",
+     "players": [
+      {
+       "name": "Novak Djokovic"
+      },
+      {
+       "name": "Roger Federer"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l1_djokovic_federer_007653.mp4",
+      "clips/l1_djokovic_federer_017702.mp4"
+     ],
+     "match": "Wimbledon 2019 final",
+     "players": [
+      {
+       "name": "Novak Djokovic"
+      },
+      {
+       "name": "Roger Federer"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l1_djokovic_federer_018698.mp4",
+      "clips/l1_djokovic_federer_005425.mp4"
+     ],
+     "match": "Wimbledon 2019 final",
+     "players": [
+      {
+       "name": "Novak Djokovic"
+      },
+      {
+       "name": "Roger Federer"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l1_djokovic_nadal_011654.mp4",
+      "clips/l1_djokovic_nadal_015898.mp4"
+     ],
+     "match": "US Open 2013 final",
+     "players": [
+      {
+       "name": "Novak Djokovic"
+      },
+      {
+       "name": "Rafael Nadal"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l1_djokovic_nadal_008821.mp4",
+      "clips/l1_djokovic_nadal_019573.mp4"
+     ],
+     "match": "US Open 2013 final",
+     "players": [
+      {
+       "name": "Novak Djokovic"
+      },
+      {
+       "name": "Rafael Nadal"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l1_djokovic_nadal_012525.mp4",
+      "clips/l1_djokovic_nadal_017915.mp4"
+     ],
+     "match": "US Open 2013 final",
+     "players": [
+      {
+       "name": "Novak Djokovic"
+      },
+      {
+       "name": "Rafael Nadal"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "level": 2,
+   "rounds": [
+    {
+     "clips": [
+      "clips/l2_alcaraz_zverev_004185.mp4",
+      "clips/l2_alcaraz_zverev_006918.mp4"
+     ],
+     "match": "Australian Open 2026 semifinal",
+     "players": [
+      {
+       "name": "Carlos Alcaraz"
+      },
+      {
+       "name": "Alexander Zverev"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l2_sinner_zverev_010970.mp4",
+      "clips/l2_sinner_zverev_001824.mp4"
+     ],
+     "match": "Australian Open 2025 final",
+     "players": [
+      {
+       "name": "Jannik Sinner"
+      },
+      {
+       "name": "Alexander Zverev"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l2_sinner_zverev_012032.mp4",
+      "clips/l2_sinner_zverev_002452.mp4"
+     ],
+     "match": "Australian Open 2025 final",
+     "players": [
+      {
+       "name": "Jannik Sinner"
+      },
+      {
+       "name": "Alexander Zverev"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l4_medvedev_tsitsipas_006863.mp4",
+      "clips/l4_medvedev_tsitsipas_009971.mp4"
+     ],
+     "match": "Australian Open 2022 semifinal",
+     "players": [
+      {
+       "name": "Daniil Medvedev"
+      },
+      {
+       "name": "Stefanos Tsitsipas"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l4_medvedev_tsitsipas_002195.mp4",
+      "clips/l4_medvedev_tsitsipas_011596.mp4"
+     ],
+     "match": "Australian Open 2022 semifinal",
+     "players": [
+      {
+       "name": "Daniil Medvedev"
+      },
+      {
+       "name": "Stefanos Tsitsipas"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l4_medvedev_tsitsipas_001279.mp4",
+      "clips/l4_medvedev_tsitsipas_006366.mp4"
+     ],
+     "match": "Australian Open 2022 semifinal",
+     "players": [
+      {
+       "name": "Daniil Medvedev"
+      },
+      {
+       "name": "Stefanos Tsitsipas"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "level": 3,
+   "rounds": [
+    {
+     "clips": [
+      "clips/l4_kyrgios_medvedev_013823.mp4",
+      "clips/l4_kyrgios_medvedev_016038.mp4"
+     ],
+     "match": "US Open 2022 round 4",
+     "players": [
+      {
+       "name": "Nick Kyrgios"
+      },
+      {
+       "name": "Daniil Medvedev"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l4_kyrgios_tsitsipas_018768.mp4",
+      "clips/l4_kyrgios_tsitsipas_012722.mp4"
+     ],
+     "match": "Wimbledon 2022 round 3, highlights",
+     "players": [
+      {
+       "name": "Nick Kyrgios"
+      },
+      {
+       "name": "Stefanos Tsitsipas"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l4_kyrgios_tsitsipas_017140.mp4",
+      "clips/l4_kyrgios_tsitsipas_014251.mp4"
+     ],
+     "match": "Wimbledon 2022 round 3, highlights",
+     "players": [
+      {
+       "name": "Nick Kyrgios"
+      },
+      {
+       "name": "Stefanos Tsitsipas"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l4_kyrgios_tsitsipas_012968.mp4",
+      "clips/l4_kyrgios_tsitsipas_000645.mp4"
+     ],
+     "match": "Wimbledon 2022 round 3, highlights",
+     "players": [
+      {
+       "name": "Nick Kyrgios"
+      },
+      {
+       "name": "Stefanos Tsitsipas"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l4_kyrgios_tsitsipas_005649.mp4",
+      "clips/l4_kyrgios_tsitsipas_002644.mp4"
+     ],
+     "match": "Wimbledon 2022 round 3, highlights",
+     "players": [
+      {
+       "name": "Nick Kyrgios"
+      },
+      {
+       "name": "Stefanos Tsitsipas"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l4_kyrgios_tsitsipas_009643.mp4",
+      "clips/l4_kyrgios_tsitsipas_010370.mp4"
+     ],
+     "match": "Wimbledon 2022 round 3, highlights",
+     "players": [
+      {
+       "name": "Nick Kyrgios"
+      },
+      {
+       "name": "Stefanos Tsitsipas"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "level": 4,
+   "rounds": [
+    {
+     "clips": [
+      "clips/l5_fritz_shelton_000472.mp4",
+      "clips/l5_fritz_shelton_011714.mp4"
+     ],
+     "match": "Indian Wells 2023, highlights",
+     "players": [
+      {
+       "name": "Taylor Fritz"
+      },
+      {
+       "name": "Ben Shelton"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l5_fritz_shelton_003874.mp4",
+      "clips/l5_fritz_shelton_005023.mp4"
+     ],
+     "match": "Indian Wells 2023, highlights",
+     "players": [
+      {
+       "name": "Taylor Fritz"
+      },
+      {
+       "name": "Ben Shelton"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l5_fritz_tiafoe_008406.mp4",
+      "clips/l5_fritz_tiafoe_009192.mp4"
+     ],
+     "match": "US Open 2024 semifinal",
+     "players": [
+      {
+       "name": "Taylor Fritz"
+      },
+      {
+       "name": "Frances Tiafoe"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l5_fritz_tiafoe_006038.mp4",
+      "clips/l5_fritz_tiafoe_010176.mp4"
+     ],
+     "match": "US Open 2024 semifinal",
+     "players": [
+      {
+       "name": "Taylor Fritz"
+      },
+      {
+       "name": "Frances Tiafoe"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l5_shelton_tiafoe_011557.mp4",
+      "clips/l5_shelton_tiafoe_005616.mp4"
+     ],
+     "match": "US Open 2024 round 3",
+     "players": [
+      {
+       "name": "Ben Shelton"
+      },
+      {
+       "name": "Frances Tiafoe"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l5_shelton_tiafoe_010660.mp4",
+      "clips/l5_shelton_tiafoe_004356.mp4"
+     ],
+     "match": "US Open 2024 round 3",
+     "players": [
+      {
+       "name": "Ben Shelton"
+      },
+      {
+       "name": "Frances Tiafoe"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "level": 5,
+   "rounds": [
+    {
+     "clips": [
+      "clips/l6_dimitrov_rublev_014516.mp4",
+      "clips/l6_dimitrov_rublev_005600.mp4"
+     ],
+     "match": "US Open 2024 round 4",
+     "players": [
+      {
+       "name": "Grigor Dimitrov"
+      },
+      {
+       "name": "Andrey Rublev"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l6_deminaur_dimitrov_010482.mp4",
+      "clips/l6_deminaur_dimitrov_001585.mp4"
+     ],
+     "match": "US Open 2019 round 4, highlights",
+     "players": [
+      {
+       "name": "Alex de Minaur"
+      },
+      {
+       "name": "Grigor Dimitrov"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l6_deminaur_dimitrov_002504.mp4",
+      "clips/l6_deminaur_dimitrov_009770.mp4"
+     ],
+     "match": "US Open 2019 round 4, highlights",
+     "players": [
+      {
+       "name": "Alex de Minaur"
+      },
+      {
+       "name": "Grigor Dimitrov"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l6_deminaur_rublev_004331.mp4",
+      "clips/l6_deminaur_rublev_000965.mp4"
+     ],
+     "match": "Australian Open 2024 round 4",
+     "players": [
+      {
+       "name": "Alex de Minaur"
+      },
+      {
+       "name": "Andrey Rublev"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l6_deminaur_rublev_009984.mp4",
+      "clips/l6_deminaur_rublev_007988.mp4"
+     ],
+     "match": "Australian Open 2024 round 4",
+     "players": [
+      {
+       "name": "Alex de Minaur"
+      },
+      {
+       "name": "Andrey Rublev"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l6_deminaur_rublev_003956.mp4",
+      "clips/l6_deminaur_rublev_000640.mp4"
+     ],
+     "match": "Australian Open 2024 round 4",
+     "players": [
+      {
+       "name": "Alex de Minaur"
+      },
+      {
+       "name": "Andrey Rublev"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l6_deminaur_rublev_002995.mp4",
+      "clips/l6_deminaur_rublev_001093.mp4"
+     ],
+     "match": "Australian Open 2024 round 4",
+     "players": [
+      {
+       "name": "Alex de Minaur"
+      },
+      {
+       "name": "Andrey Rublev"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l6_deminaur_rublev_010563.mp4",
+      "clips/l6_deminaur_rublev_001388.mp4"
+     ],
+     "match": "Australian Open 2024 round 4",
+     "players": [
+      {
+       "name": "Alex de Minaur"
+      },
+      {
+       "name": "Andrey Rublev"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "level": 6,
+   "rounds": [
+    {
+     "clips": [
+      "clips/l7_berrettini_rune_010399.mp4",
+      "clips/l7_berrettini_rune_007025.mp4"
+     ],
+     "match": "Australian Open 2025 round 2",
+     "players": [
+      {
+       "name": "Matteo Berrettini"
+      },
+      {
+       "name": "Holger Rune"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l7_berrettini_rune_009595.mp4",
+      "clips/l7_berrettini_rune_010707.mp4"
+     ],
+     "match": "Australian Open 2025 round 2",
+     "players": [
+      {
+       "name": "Matteo Berrettini"
+      },
+      {
+       "name": "Holger Rune"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l7_berrettini_rune_010111.mp4",
+      "clips/l7_berrettini_rune_011305.mp4"
+     ],
+     "match": "Australian Open 2025 round 2",
+     "players": [
+      {
+       "name": "Matteo Berrettini"
+      },
+      {
+       "name": "Holger Rune"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l7_berrettini_ruud_015001.mp4",
+      "clips/l7_berrettini_ruud_003709.mp4"
+     ],
+     "match": "US Open 2022 quarterfinal",
+     "players": [
+      {
+       "name": "Matteo Berrettini"
+      },
+      {
+       "name": "Casper Ruud"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l7_berrettini_ruud_006489.mp4",
+      "clips/l7_berrettini_ruud_013662.mp4"
+     ],
+     "match": "US Open 2022 quarterfinal",
+     "players": [
+      {
+       "name": "Matteo Berrettini"
+      },
+      {
+       "name": "Casper Ruud"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l7_berrettini_ruud_006798.mp4",
+      "clips/l7_berrettini_ruud_004663.mp4"
+     ],
+     "match": "US Open 2022 quarterfinal",
+     "players": [
+      {
+       "name": "Matteo Berrettini"
+      },
+      {
+       "name": "Casper Ruud"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l7_rune_ruud_000304.mp4",
+      "clips/l7_rune_ruud_001851.mp4"
+     ],
+     "match": "Red Bull Bassline exhibition, Australian Open 2025",
+     "players": [
+      {
+       "name": "Holger Rune"
+      },
+      {
+       "name": "Casper Ruud"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "level": 7,
+   "rounds": [
+    {
+     "clips": [
+      "clips/l8_korda_paul_017080.mp4",
+      "clips/l8_korda_paul_009004.mp4"
+     ],
+     "match": "US Open 2022 round 2",
+     "players": [
+      {
+       "name": "Sebastian Korda"
+      },
+      {
+       "name": "Tommy Paul"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l8_korda_paul_016683.mp4",
+      "clips/l8_korda_paul_008525.mp4"
+     ],
+     "match": "US Open 2022 round 2",
+     "players": [
+      {
+       "name": "Sebastian Korda"
+      },
+      {
+       "name": "Tommy Paul"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l8_hurkacz_korda_000854.mp4",
+      "clips/l8_hurkacz_korda_009971.mp4"
+     ],
+     "match": "Australian Open 2023 round 4",
+     "players": [
+      {
+       "name": "Hubert Hurkacz"
+      },
+      {
+       "name": "Sebastian Korda"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l8_hurkacz_korda_014217.mp4",
+      "clips/l8_hurkacz_korda_010726.mp4"
+     ],
+     "match": "Australian Open 2023 round 4",
+     "players": [
+      {
+       "name": "Hubert Hurkacz"
+      },
+      {
+       "name": "Sebastian Korda"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l8_hurkacz_korda_006821.mp4",
+      "clips/l8_hurkacz_korda_009151.mp4"
+     ],
+     "match": "Australian Open 2023 round 4",
+     "players": [
+      {
+       "name": "Hubert Hurkacz"
+      },
+      {
+       "name": "Sebastian Korda"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "level": 8,
+   "rounds": [
+    {
+     "clips": [
+      "clips/l8_hurkacz_mensik_005406.mp4",
+      "clips/l8_hurkacz_mensik_001049.mp4"
+     ],
+     "match": "Australian Open 2024 round 2, highlights",
+     "players": [
+      {
+       "name": "Hubert Hurkacz"
+      },
+      {
+       "name": "Jakub Mensik"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l8_hurkacz_mensik_006655.mp4",
+      "clips/l8_hurkacz_mensik_000838.mp4"
+     ],
+     "match": "Australian Open 2024 round 2, highlights",
+     "players": [
+      {
+       "name": "Hubert Hurkacz"
+      },
+      {
+       "name": "Jakub Mensik"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l8_hurkacz_mensik_000000.mp4",
+      "clips/l8_hurkacz_mensik_006849.mp4"
+     ],
+     "match": "Australian Open 2024 round 2, highlights",
+     "players": [
+      {
+       "name": "Hubert Hurkacz"
+      },
+      {
+       "name": "Jakub Mensik"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l8_hurkacz_mensik_004883.mp4",
+      "clips/l8_hurkacz_mensik_004241.mp4"
+     ],
+     "match": "Australian Open 2024 round 2, highlights",
+     "players": [
+      {
+       "name": "Hubert Hurkacz"
+      },
+      {
+       "name": "Jakub Mensik"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l9_augeraliassime_lehecka_012210.mp4",
+      "clips/l9_augeraliassime_lehecka_002799.mp4"
+     ],
+     "match": "Australian Open 2023 round 4, condensed",
+     "players": [
+      {
+       "name": "Felix Auger-Aliassime"
+      },
+      {
+       "name": "Jiri Lehecka"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "level": 9,
+   "rounds": [
+    {
+     "clips": [
+      "clips/l9_draper_giron_005416.mp4",
+      "clips/l9_draper_giron_002572.mp4"
+     ],
+     "match": "Australian Open 2024 round 1, condensed",
+     "players": [
+      {
+       "name": "Jack Draper"
+      },
+      {
+       "name": "Marcos Giron"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l10_brooksby_fonseca_003645.mp4",
+      "clips/l10_brooksby_fonseca_006112.mp4"
+     ],
+     "match": "Wimbledon 2025 round 1, highlights",
+     "players": [
+      {
+       "name": "Jenson Brooksby"
+      },
+      {
+       "name": "Joao Fonseca"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l10_brooksby_fonseca_002746.mp4",
+      "clips/l10_brooksby_fonseca_008671.mp4"
+     ],
+     "match": "Wimbledon 2025 round 1, highlights",
+     "players": [
+      {
+       "name": "Jenson Brooksby"
+      },
+      {
+       "name": "Joao Fonseca"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l10_brooksby_fonseca_001556.mp4",
+      "clips/l10_brooksby_fonseca_004847.mp4"
+     ],
+     "match": "Wimbledon 2025 round 1, highlights",
+     "players": [
+      {
+       "name": "Jenson Brooksby"
+      },
+      {
+       "name": "Joao Fonseca"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "level": 10,
+   "rounds": [
+    {
+     "clips": [
+      "clips/l10_michelsen_nakashima_019227.mp4",
+      "clips/l10_michelsen_nakashima_015480.mp4"
+     ],
+     "match": "US Open 2026 round 2, condensed",
+     "players": [
+      {
+       "name": "Alex Michelsen"
+      },
+      {
+       "name": "Brandon Nakashima"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l10_michelsen_nakashima_029870.mp4",
+      "clips/l10_michelsen_nakashima_025462.mp4"
+     ],
+     "match": "US Open 2026 round 2, condensed",
+     "players": [
+      {
+       "name": "Alex Michelsen"
+      },
+      {
+       "name": "Brandon Nakashima"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l10_michelsen_nakashima_022980.mp4",
+      "clips/l10_michelsen_nakashima_025186.mp4"
+     ],
+     "match": "US Open 2026 round 2, condensed",
+     "players": [
+      {
+       "name": "Alex Michelsen"
+      },
+      {
+       "name": "Brandon Nakashima"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l10_michelsen_nakashima_001575.mp4",
+      "clips/l10_michelsen_nakashima_018744.mp4"
+     ],
+     "match": "US Open 2026 round 2, condensed",
+     "players": [
+      {
+       "name": "Alex Michelsen"
+      },
+      {
+       "name": "Brandon Nakashima"
+      }
+     ]
+    },
+    {
+     "clips": [
+      "clips/l10_michelsen_nakashima_013530.mp4",
+      "clips/l10_michelsen_nakashima_022213.mp4"
+     ],
+     "match": "US Open 2026 round 2, condensed",
+     "players": [
+      {
+       "name": "Alex Michelsen"
+      },
+      {
+       "name": "Brandon Nakashima"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

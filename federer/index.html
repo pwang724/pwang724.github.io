@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Federer, Syllable by Syllable</title>
+<meta name="description" content="Tracking Federer’s evolution between 2003 and 2019 through simple unsupervised and supervised methods.">
+<meta property="og:title" content="Federer, Syllable by Syllable"><meta property="og:description" content="Tracking Federer’s evolution between 2003 and 2019 through simple unsupervised and supervised methods.">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;800&family=Geist+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/site.css?v=55e69978d5">
+
+</head>
+<body data-page="writeup" data-slug="federer">
+<main class="unbranded">
+
+  <article>
+    <header class="w-head wrap">
+      <p class="kicker"><span>Sports</span> <span aria-hidden="true">/</span> <span>Machine learning</span><span>2 October 2026</span></p>
+      <h1>Federer, Syllable by Syllable</h1>
+      
+      <p class="by">Peter Wang and Nico Christie</p>
+      <p class="actions"><a class="link" href="https://github.com/pwang724/deep-sports-analysis" target="_blank" rel="noopener noreferrer">Code on GitHub</a></p>
+    </header>
+    <div class="prose wrap">
+<style>
+.fed { --bg: var(--paper); --surface: #fff; --muted: var(--gray); --faint: #9a9aa2; --accent: #c2410c; --blue: #2563eb; }
+.fed section.change { padding-top: 40px; }
+.fed nav.cats { position: sticky; top: 0; z-index: 2; background: var(--bg); display: flex; gap: 6px; flex-wrap: wrap; padding-top: 14px; padding-bottom: 14px; margin-top: 24px; border-bottom: 1px solid var(--line); box-shadow: 0 0 0 100vmax var(--bg); clip-path: inset(0 -100vmax); }
+.fed nav.cats button { font: 500 15px var(--sans); color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 0; padding: 7px 16px; cursor: pointer; }
+.fed nav.cats button:hover { color: var(--ink); }
+.fed nav.cats button[aria-selected="true"] { color: var(--ink); border-color: var(--ink); }
+.fed .cat[hidden] { display: none; }
+.fed .methods { padding-top: 22px; }
+.fed .methods h3 { font-size: 17px; font-weight: 600; margin: 26px 0 6px; }
+@media (max-width: 640px) {
+.fed nav.cats { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+.fed nav.cats button { flex: none; }
+}
+.fed .player { background: #000; border-radius: 0; overflow: hidden; border: 1px solid var(--line); aspect-ratio: 886 / 474; }
+.fed .player video { width: 100%; height: 100%; display: block; }
+.fed .tabs { display: flex; gap: 6px; margin: 0 0 12px; flex-wrap: wrap; }
+.fed .tabs button { font: 500 14px var(--sans); color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 0; padding: 6px 14px; cursor: pointer; }
+.fed .tabs button:hover { color: var(--ink); }
+.fed .tabs button[aria-selected="true"] { color: var(--ink); background: var(--surface); border-color: var(--ink); }
+.fed .diagram { background: var(--surface); border: 1px solid var(--line); border-radius: 0; padding: 14px; }
+.fed .diagram svg { width: 100%; height: auto; display: block; }
+.fed .diagram text { font-family: var(--sans); }
+.fed .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+@media (max-width: 640px) {
+.fed .pair { grid-template-columns: 1fr; }
+}
+.fed .grid { stroke: var(--line); }
+.fed .tick { font-size: 12px; fill: var(--faint); }
+.fed .era { font-size: 13px; fill: var(--muted); }
+.fed .ylabel { font-size: 12.5px; fill: var(--muted); }
+.fed .line { fill: none; stroke-width: 2; }
+.fed .line.his { stroke: var(--blue); }
+.fed .line.other { stroke: var(--faint); stroke-dasharray: 4 4; }
+.fed .key-t { font-size: 12.5px; fill: var(--muted); }
+.fed .stars { font-size: 15px; font-weight: 700; fill: var(--blue); stroke: #fff; stroke-width: 3px; paint-order: stroke; }
+.fed .err { stroke-width: 1.5; }
+.fed .err.his { stroke: var(--blue); }
+.fed .err.other { stroke: var(--faint); }
+.fed .pt.his { fill: var(--blue); }
+.fed .pt.other { fill: var(--faint); }
+.fed .ref { stroke: var(--faint); stroke-dasharray: 3 4; }
+.fed .lab { font-size: 12px; fill: var(--muted); }
+.fed .lab.late { fill: var(--blue); }
+.fed .val { font-size: 14px; font-weight: 600; fill: var(--ink); }
+.fed .leg { stroke-width: 3; stroke-linecap: round; }
+.fed .leg.early { stroke: var(--faint); }
+.fed .leg.late { stroke: var(--blue); }
+.fed .foot.early { fill: var(--faint); }
+.fed .foot.late { fill: var(--blue); }
+.fed .foot.back { fill: var(--ink); }
+.fed .bone { stroke-width: 2; stroke-linecap: round; }
+.fed .bone.early { stroke: var(--faint); }
+.fed .bone.late { stroke: var(--blue); }
+.fed .bone.hot { stroke-width: 4.5; stroke: var(--accent); }
+.fed .headc { fill: none; stroke-width: 2; }
+.fed .headc.early { stroke: var(--faint); }
+.fed .headc.late { stroke: var(--blue); }
+.fed .ex-body { margin: 14px 0 0; font-size: 14px; color: var(--ink); }
+.fed .ex-body a { color: var(--muted); margin-left: 8px; }
+.fed .explorer { --exh: calc(100svh - 132px); max-width: 1100px; margin: 10px auto 0; padding: 0 24px; background: var(--bg, #fff); scroll-margin-top: 64px; }
+.fed .explorer:fullscreen { --exh: calc(100vh - 62px); max-width: none; padding: 6px 28px 0; overflow: hidden; }
+.fed .ex-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; padding: 12px 0; }
+.fed .ex-ctl { display: flex; align-items: center; gap: 10px; }
+.fed .ex-lab { font-size: 11.5px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--faint); }
+.fed .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 0; overflow: hidden; }
+.fed .seg button { font: 500 13.5px var(--sans); color: var(--muted); background: #fff; border: 0; padding: 6px 12px; cursor: pointer; }
+.fed .seg button + button { border-left: 1px solid var(--line); }
+.fed .seg button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.fed .ex-range { display: flex; align-items: center; gap: 12px; height: 32px; }
+.fed .ex-yl { font-size: 13px; color: var(--ink); }
+.fed .ex-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.fed .ex-chips button { display: inline-flex; align-items: center; gap: 7px; font: 500 13.5px var(--sans); color: var(--faint);
+    background: #fff; border: 1px solid var(--line); border-radius: 0; padding: 5px 11px; cursor: pointer; }
+.fed .ex-chips button i { width: 9px; height: 9px; border-radius: 0; opacity: .3; }
+.fed .ex-chips button[aria-pressed="true"] { color: var(--ink); border-color: var(--ink); }
+.fed .ex-chips button[aria-pressed="true"] i { opacity: 1; }
+.fed .ex-yl { align-self: center; font-variant-numeric: tabular-nums; min-width: 86px; }
+.fed .dual { position: relative; width: 210px; height: 30px; }
+.fed .dual .track { position: absolute; left: 7px; right: 7px; top: 13px; height: 4px; border-radius: 0; background: var(--line); }
+.fed .dual .fill { position: absolute; top: 0; bottom: 0; background: var(--ink); border-radius: 0; }
+.fed .dual input { position: absolute; inset: 0; width: 100%; margin: 0; background: none; pointer-events: none; -webkit-appearance: none; appearance: none; }
+.fed .dual input::-webkit-slider-runnable-track { height: 30px; background: none; }
+.fed .dual input::-webkit-slider-thumb { -webkit-appearance: none; pointer-events: auto; width: 16px; height: 16px; margin-top: 7px;
+    border-radius: 0; background: #fff; border: 2px solid var(--ink); cursor: grab; }
+.fed .dual input::-moz-range-thumb { pointer-events: auto; width: 13px; height: 13px; border-radius: 0; background: #fff; border: 2px solid var(--ink); cursor: grab; }
+.fed .tool { font: 500 13.5px var(--sans); color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 0;
+    padding: 6px 12px; cursor: pointer; }
+.fed .tool:hover { border-color: var(--faint); }
+.fed .tool[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.fed .tool svg { vertical-align: -2px; margin-right: 6px; }
+.fed .ex-main { display: grid; grid-template-columns: 200px minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); gap: 12px 16px;
+    height: max(560px, var(--exh)); }
+.fed .ex-side { grid-column: 1; grid-row: 1 / 3; overflow-y: auto; padding-right: 4px; min-height: 0; }
+.fed .ex-side h5 { font-size: 11.5px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--faint); margin: 14px 0 4px; }
+.fed .ex-side h5:first-child { margin-top: 0; }
+.fed .ex-side button { display: flex; align-items: center; gap: 9px; width: 100%; text-align: left; font: 14px/1.3 var(--sans);
+    color: var(--ink); background: none; border: 0; border-radius: 0; padding: 6px 8px; cursor: pointer; }
+.fed .ex-side button:hover { background: var(--sunk); }
+.fed .ex-side button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.fed .ex-side .sw { flex: none; width: 10px; height: 10px; border-radius: 0; }
+.fed .ex-side .nm { flex: 1; }
+.fed .ex-mapwrap { grid-column: 2; grid-row: 2; position: relative; border: 1px solid var(--line); border-radius: 0; overflow: hidden; min-height: 0; }
+.fed .ex-map { width: 100%; height: 100%; display: block; cursor: crosshair; touch-action: none; }
+.fed .ex-legend { position: absolute; left: 10px; bottom: 10px; font-size: 12px; color: var(--muted); background: rgba(255,255,255,.9);
+    padding: 4px 9px; border-radius: 0; pointer-events: none; }
+.fed .ex-legend i { display: inline-block; width: 8px; height: 8px; border-radius: 0; margin: 0 4px 0 9px; }
+.fed .ex-legend .grad { display: inline-block; width: 120px; height: 8px; border-radius: 0; margin: 0 6px; vertical-align: 0; }
+.fed .ex-hint { position: absolute; left: 10px; top: 8px; white-space: nowrap; font-size: 12px; color: var(--faint); background: rgba(255,255,255,.9);
+    padding: 3px 8px; border-radius: 0; pointer-events: none; }
+.fed .ex-view { grid-column: 2; grid-row: 1; }
+.fed .ex-acts { display: flex; gap: 6px; flex: none; margin-left: auto; }
+.fed .ex-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.fed .explorer:fullscreen .ex-row { grid-template-columns: repeat(8, 1fr); gap: 6px; }
+.fed .ex-clips { display: contents; }
+.fed .ex-crowdtile { position: relative; aspect-ratio: 4 / 3; border: 1px solid var(--line); border-radius: 0; background: #fff; }
+.fed .ex-crowdtile canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.fed .ex-clip { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: #111; border-radius: 0; }
+.fed .ex-clip video { position: absolute; max-width: none; }
+.fed .ex-clip canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.fed .ex-clip span { position: absolute; left: 8px; top: 6px; font-size: 12px; color: #eee; text-shadow: 0 1px 2px #000; }
+.fed .ex-clip.me { outline: 2px solid var(--ink); outline-offset: 2px; }
+@media (max-width: 640px) {
+.fed .explorer { padding: 0 16px; }
+.fed .ex-bar { gap: 12px 16px; }
+.fed .ex-filter { width: 100%; }
+.fed .ex-range { flex: 1; }
+.fed .dual { flex: 1; width: auto; }
+.fed .ex-acts { margin-left: 0; }
+.fed .ex-bar > .ex-ctl:first-child .ex-lab { display: none; }
+.fed .seg button { padding: 6px 9px; font-size: 13px; }
+.fed .ex-full { display: none; }
+.fed .ex-main { display: flex; flex-direction: column; gap: 12px; height: auto; }
+.fed .ex-side { order: 1; }
+.fed .ex-view { order: 2; }
+.fed .ex-mapwrap { order: 3; }
+.fed .ex-side { display: flex; gap: 6px; overflow-x: auto; height: auto; padding: 0 0 4px; scrollbar-width: none;
+      margin: 0 -16px; padding-left: 16px; padding-right: 16px; }
+.fed .ex-side::-webkit-scrollbar { display: none; }
+.fed .ex-side h5 { display: none; }
+.fed .ex-side button { flex: none; width: auto; border: 1px solid var(--line); border-radius: 0; padding: 7px 13px; white-space: nowrap; }
+.fed .ex-mapwrap { height: auto; aspect-ratio: 1 / 1; }
+.fed .ex-hint { display: none; }
+.fed .ex-row { grid-template-columns: repeat(2, 1fr); }
+}
+.fed footer:empty { display: none; }
+</style>
+<div class="fed">
+<nav class="wrap cats" role="tablist"><button role="tab" data-cat="syllables">Syllables</button><button role="tab" data-cat="then">Then vs Now</button><button role="tab" data-cat="methods">Methods</button></nav>
+<div class="cat" id="syllables" role="tabpanel">
+<div class="explorer" data-src="data.json" data-unit="syllables">
+  <div class="ex-bar">
+    <div class="ex-ctl"><span class="ex-lab">Colour by</span><div class="seg ex-colour"><button data-v="cluster" aria-pressed="true">Syllable</button><button data-v="year" aria-pressed="false">Year</button><button data-v="speed" aria-pressed="false">Speed</button></div></div>
+    <div class="ex-ctl ex-filter">
+      <div class="ex-range"><div class="dual"><div class="track"><div class="fill"></div></div>
+        <input type="range" class="ex-y0" aria-label="From"><input type="range" class="ex-y1" aria-label="To"></div>
+        <span class="ex-yl"></span></div>
+      <div class="ex-chips"></div></div>
+    <div class="ex-acts"><button class="tool ex-more">More examples</button><button class="tool ex-reset">Reset</button><button class="tool ex-full" aria-pressed="false"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 4.5V1h3.5M8.5 1H12v3.5M12 8.5V12H8.5M4.5 12H1V8.5"/></svg><span>Full screen</span></button></div>
+  </div>
+  <div class="ex-main">
+    <aside class="ex-side"></aside>
+    <div class="ex-mapwrap"><canvas class="ex-map"></canvas><div class="ex-legend"></div>
+      <div class="ex-hint">Scroll to zoom · drag to pan · click a dot to circle it · drag the circle to move it, its edge to size it</div></div>
+    <div class="ex-view">
+      <div class="ex-row"><div class="ex-clips"></div>
+        <div class="ex-crowdtile"><canvas class="ex-crowd"></canvas></div></div>
+    </div>
+  </div>
+</div>
+<script>  // ?body=lower: the hips-down syllables instead, for comparing
+  if (new URLSearchParams(location.search).get("body") === "lower") {
+    const ex = document.querySelector(".explorer");
+    ex.dataset.src = "data_lower.json";
+    ex.insertAdjacentHTML("afterbegin", '<p class="ex-body">Hips down only: syllables from his legs, without the arms. <a href="?">Whole body</a></p>');
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="explorer/explorer.js?v=1ed09bb6ce"></script></div>
+<div class="cat" id="then" role="tabpanel">
+<section class="wrap change">
+  <h3 class="sub-h">Forehand: more closed stance</h3>
+  <p>Feet angle was 49° in 2003–07, 65° in 2017–19.</p>
+  <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-src="https://media.offpolicyinc.com/federer/forehand_stance_angle_0.mp4">Pair 1</button><button role="tab" aria-selected="false" data-src="https://media.offpolicyinc.com/federer/forehand_stance_angle_1.mp4">Pair 2</button><button role="tab" aria-selected="false" data-src="https://media.offpolicyinc.com/federer/forehand_stance_angle_2.mp4">Pair 3</button></div>
+  <div class="player"><video src="https://media.offpolicyinc.com/federer/forehand_stance_angle_0.mp4" loop muted playsinline controls preload="auto"></video></div>
+  <div class="pair">
+    <figure><div class="diagram"><svg viewBox="0 0 340 280" role="img"><text x="14" y="135" class="ylabel" text-anchor="middle" transform="rotate(-90 14 135)">Feet to the baseline (°)</text><circle cx="70" cy="12" r="4" class="pt his"/><text x="79" y="16" class="key-t">Federer</text><line x1="146" x2="164" y1="12" y2="12" class="line other"/><circle cx="155" cy="12" r="4" class="pt other"/><text x="170" y="16" class="key-t">Opponents</text><line x1="64" x2="334" y1="221.8" y2="221.8" class="grid"/><text x="56" y="225.8" class="tick" text-anchor="end">21</text><line x1="64" x2="334" y1="171.2" y2="171.2" class="grid"/><text x="56" y="175.2" class="tick" text-anchor="end">37</text><line x1="64" x2="334" y1="120.6" y2="120.6" class="grid"/><text x="56" y="124.6" class="tick" text-anchor="end">53</text><line x1="64" x2="334" y1="70.1" y2="70.1" class="grid"/><text x="56" y="74.1" class="tick" text-anchor="end">69</text><text x="92.0" y="264" class="era" text-anchor="middle">2003-07</text><text x="165.3" y="264" class="era" text-anchor="middle">2008-12</text><text x="238.7" y="264" class="era" text-anchor="middle">2013-15</text><text x="312.0" y="264" class="era" text-anchor="middle">2017-19</text><polyline class="line other" points="98.0,145.7 171.3,159.5 244.7,132.3 318.0,124.7"/><line x1="98.0" x2="98.0" y1="175.2" y2="119.0" class="err other"/><circle cx="98.0" cy="145.7" r="4" class="pt other"/><line x1="171.3" x2="171.3" y1="221.8" y2="123.8" class="err other"/><circle cx="171.3" cy="159.5" r="4" class="pt other"/><line x1="244.7" x2="244.7" y1="193.0" y2="100.3" class="err other"/><circle cx="244.7" cy="132.3" r="4" class="pt other"/><line x1="318.0" x2="318.0" y1="143.0" y2="105.9" class="err other"/><circle cx="318.0" cy="124.7" r="4" class="pt other"/><polyline class="line his" points="86.0,132.4 159.3,91.9 232.7,82.5 306.0,81.5"/><line x1="86.0" x2="86.0" y1="149.2" y2="114.0" class="err his"/><circle cx="86.0" cy="132.4" r="4" class="pt his"/><line x1="159.3" x2="159.3" y1="98.5" y2="82.4" class="err his"/><circle cx="159.3" cy="91.9" r="4" class="pt his"/><line x1="232.7" x2="232.7" y1="98.2" y2="70.1" class="err his"/><circle cx="232.7" cy="82.5" r="4" class="pt his"/><line x1="306.0" x2="306.0" y1="89.8" y2="73.2" class="err his"/><circle cx="306.0" cy="81.5" r="4" class="pt his"/><text x="306.0" y="65.2" class="stars" text-anchor="middle">***</text></svg></div></figure>
+    <figure><div class="diagram"><svg viewBox="0 0 340 280" role="img"><line x1="59" x2="277" y1="218.4" y2="218.4" class="ref"/><text x="277" y="236.4" class="lab" text-anchor="end">baseline direction</text><line x1="231" y1="218" x2="142" y2="108" class="leg early"/><circle cx="142" cy="108" r="7" class="foot early"/><text x="130" y="112" class="lab early" text-anchor="end">51°</text><line x1="231" y1="218" x2="158" y2="47" class="leg late"/><circle cx="158" cy="47" r="7" class="foot late"/><text x="146" y="51" class="lab late" text-anchor="end">67°</text><circle cx="231" cy="218" r="7" class="foot back"/><text x="243" y="210" class="lab">back foot</text><text x="170" y="18" class="lab" text-anchor="middle">net ↑</text></svg></div></figure>
+  </div>
+</section>
+<section class="wrap change">
+  <h3 class="sub-h">Forehand: ball contact further from body</h3>
+  <p>Contact point was 54 cm from his hip center in 2003–07 and grew to 62 cm in 2017–19.</p>
+  <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-src="https://media.offpolicyinc.com/federer/forehand_contact_side_0.mp4">Pair 1</button><button role="tab" aria-selected="false" data-src="https://media.offpolicyinc.com/federer/forehand_contact_side_1.mp4">Pair 2</button><button role="tab" aria-selected="false" data-src="https://media.offpolicyinc.com/federer/forehand_contact_side_2.mp4">Pair 3</button></div>
+  <div class="player"><video src="https://media.offpolicyinc.com/federer/forehand_contact_side_0.mp4" loop muted playsinline controls preload="auto"></video></div>
+  <div class="pair">
+    <figure><div class="diagram"><svg viewBox="0 0 340 280" role="img"><text x="14" y="135" class="ylabel" text-anchor="middle" transform="rotate(-90 14 135)">Hips to wrist at contact (cm)</text><circle cx="70" cy="12" r="4" class="pt his"/><text x="79" y="16" class="key-t">Federer</text><line x1="146" x2="164" y1="12" y2="12" class="line other"/><circle cx="155" cy="12" r="4" class="pt other"/><text x="170" y="16" class="key-t">Opponents</text><line x1="64" x2="334" y1="221.8" y2="221.8" class="grid"/><text x="56" y="225.8" class="tick" text-anchor="end">31</text><line x1="64" x2="334" y1="171.2" y2="171.2" class="grid"/><text x="56" y="175.2" class="tick" text-anchor="end">42</text><line x1="64" x2="334" y1="120.6" y2="120.6" class="grid"/><text x="56" y="124.6" class="tick" text-anchor="end">53</text><line x1="64" x2="334" y1="70.1" y2="70.1" class="grid"/><text x="56" y="74.1" class="tick" text-anchor="end">64</text><text x="92.0" y="264" class="era" text-anchor="middle">2003-07</text><text x="165.3" y="264" class="era" text-anchor="middle">2008-12</text><text x="238.7" y="264" class="era" text-anchor="middle">2013-15</text><text x="312.0" y="264" class="era" text-anchor="middle">2017-19</text><polyline class="line other" points="98.0,171.4 171.3,157.3 244.7,147.6 318.0,152.2"/><line x1="98.0" x2="98.0" y1="189.8" y2="150.3" class="err other"/><circle cx="98.0" cy="171.4" r="4" class="pt other"/><line x1="171.3" x2="171.3" y1="188.5" y2="134.1" class="err other"/><circle cx="171.3" cy="157.3" r="4" class="pt other"/><line x1="244.7" x2="244.7" y1="221.8" y2="102.0" class="err other"/><circle cx="244.7" cy="147.6" r="4" class="pt other"/><line x1="318.0" x2="318.0" y1="168.4" y2="132.0" class="err other"/><circle cx="318.0" cy="152.2" r="4" class="pt other"/><polyline class="line his" points="86.0,114.1 159.3,133.6 232.7,97.3 306.0,76.8"/><line x1="86.0" x2="86.0" y1="132.4" y2="97.6" class="err his"/><circle cx="86.0" cy="114.1" r="4" class="pt his"/><line x1="159.3" x2="159.3" y1="164.7" y2="108.5" class="err his"/><circle cx="159.3" cy="133.6" r="4" class="pt his"/><line x1="232.7" x2="232.7" y1="119.6" y2="73.3" class="err his"/><circle cx="232.7" cy="97.3" r="4" class="pt his"/><line x1="306.0" x2="306.0" y1="86.4" y2="70.1" class="err his"/><circle cx="306.0" cy="76.8" r="4" class="pt his"/><text x="306.0" y="62.1" class="stars" text-anchor="middle">*</text></svg></div></figure>
+    <figure><div class="diagram"><svg viewBox="0 0 340 280" role="img"><line x1="54.6" x2="54.6" y1="14" y2="232" class="ref"/><line x1="50.9" y1="34.7" x2="95.7" y2="53.2" class="bone early"/><line x1="50.9" y1="34.7" x2="25.1" y2="38.8" class="bone early"/><line x1="25.1" y1="38.8" x2="41.9" y2="35.4" class="bone early"/><line x1="95.7" y1="53.2" x2="115.8" y2="69.7" class="bone early"/><line x1="115.8" y1="69.7" x2="132.5" y2="69.8" class="bone early"/><line x1="50.9" y1="34.7" x2="39.5" y2="112.4" class="bone early"/><line x1="95.7" y1="53.2" x2="69.8" y2="117.1" class="bone early"/><line x1="39.5" y1="112.4" x2="69.8" y2="117.1" class="bone early"/><line x1="39.5" y1="112.4" x2="41.3" y2="149.1" class="bone early"/><line x1="41.3" y1="149.1" x2="31.5" y2="196.7" class="bone early"/><line x1="69.8" y1="117.1" x2="81.7" y2="167.0" class="bone early"/><line x1="81.7" y1="167.0" x2="73.3" y2="228.3" class="bone early"/><circle cx="95.1" cy="23.2" r="6" class="headc early"/><line x1="132.5" y1="69.8" x2="54.6" y2="69.8" class="bone hot"/><text x="85" y="254" class="lab" text-anchor="middle">2003–07</text><text x="85" y="272" class="val" text-anchor="middle">54 cm</text><line x1="224.6" x2="224.6" y1="14" y2="232" class="ref"/><line x1="221.3" y1="35.1" x2="269.9" y2="51.6" class="bone late"/><line x1="221.3" y1="35.1" x2="195.4" y2="37.7" class="bone late"/><line x1="195.4" y1="37.7" x2="217.8" y2="29.5" class="bone late"/><line x1="269.9" y1="51.6" x2="292.4" y2="64.3" class="bone late"/><line x1="292.4" y1="64.3" x2="314.9" y2="64.6" class="bone late"/><line x1="221.3" y1="35.1" x2="209.9" y2="111.9" class="bone late"/><line x1="269.9" y1="51.6" x2="239.4" y2="117.6" class="bone late"/><line x1="209.9" y1="111.9" x2="239.4" y2="117.6" class="bone late"/><line x1="209.9" y1="111.9" x2="216.9" y2="139.6" class="bone late"/><line x1="216.9" y1="139.6" x2="214.3" y2="182.6" class="bone late"/><line x1="239.4" y1="117.6" x2="250.5" y2="168.9" class="bone late"/><line x1="250.5" y1="168.9" x2="239.1" y2="232.0" class="bone late"/><circle cx="267.5" cy="22.0" r="6" class="headc late"/><line x1="314.9" y1="64.6" x2="224.6" y2="64.6" class="bone hot"/><text x="255" y="254" class="lab" text-anchor="middle">2017–19</text><text x="255" y="272" class="val" text-anchor="middle">62 cm</text></svg></div></figure>
+  </div>
+</section>
+<section class="wrap change">
+  <h3 class="sub-h">Forehand: higher finish</h3>
+  <p>Height of his hitting wrist was 18 cm below his shoulders in 2003–07 and 4 cm above in 2017–19.</p>
+  <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-src="https://media.offpolicyinc.com/federer/forehand_finish_height_0.mp4">Pair 1</button><button role="tab" aria-selected="false" data-src="https://media.offpolicyinc.com/federer/forehand_finish_height_1.mp4">Pair 2</button><button role="tab" aria-selected="false" data-src="https://media.offpolicyinc.com/federer/forehand_finish_height_2.mp4">Pair 3</button></div>
+  <div class="player"><video src="https://media.offpolicyinc.com/federer/forehand_finish_height_0.mp4" loop muted playsinline controls preload="auto"></video></div>
+  <div class="pair">
+    <figure><div class="diagram"><svg viewBox="0 0 340 280" role="img"><text x="14" y="135" class="ylabel" text-anchor="middle" transform="rotate(-90 14 135)">Wrist above shoulders (cm)</text><circle cx="70" cy="12" r="4" class="pt his"/><text x="79" y="16" class="key-t">Federer</text><line x1="146" x2="164" y1="12" y2="12" class="line other"/><circle cx="155" cy="12" r="4" class="pt other"/><text x="170" y="16" class="key-t">Opponents</text><line x1="64" x2="334" y1="221.8" y2="221.8" class="grid"/><text x="56" y="225.8" class="tick" text-anchor="end">-21</text><line x1="64" x2="334" y1="171.2" y2="171.2" class="grid"/><text x="56" y="175.2" class="tick" text-anchor="end">-12</text><line x1="64" x2="334" y1="120.6" y2="120.6" class="grid"/><text x="56" y="124.6" class="tick" text-anchor="end">-2</text><line x1="64" x2="334" y1="70.1" y2="70.1" class="grid"/><text x="56" y="74.1" class="tick" text-anchor="end">7</text><text x="92.0" y="264" class="era" text-anchor="middle">2003-07</text><text x="165.3" y="264" class="era" text-anchor="middle">2008-12</text><text x="238.7" y="264" class="era" text-anchor="middle">2013-15</text><text x="312.0" y="264" class="era" text-anchor="middle">2017-19</text><polyline class="line other" points="98.0,182.5 171.3,157.6 244.7,124.8 318.0,105.0"/><line x1="98.0" x2="98.0" y1="199.1" y2="161.9" class="err other"/><circle cx="98.0" cy="182.5" r="4" class="pt other"/><line x1="171.3" x2="171.3" y1="178.0" y2="133.5" class="err other"/><circle cx="171.3" cy="157.6" r="4" class="pt other"/><line x1="244.7" x2="244.7" y1="171.4" y2="94.6" class="err other"/><circle cx="244.7" cy="124.8" r="4" class="pt other"/><line x1="318.0" x2="318.0" y1="140.8" y2="71.8" class="err other"/><circle cx="318.0" cy="105.0" r="4" class="pt other"/><polyline class="line his" points="86.0,205.7 159.3,179.1 232.7,109.3 306.0,88.9"/><line x1="86.0" x2="86.0" y1="221.8" y2="192.0" class="err his"/><circle cx="86.0" cy="205.7" r="4" class="pt his"/><line x1="159.3" x2="159.3" y1="207.9" y2="159.7" class="err his"/><circle cx="159.3" cy="179.1" r="4" class="pt his"/><line x1="232.7" x2="232.7" y1="136.2" y2="83.1" class="err his"/><circle cx="232.7" cy="109.3" r="4" class="pt his"/><line x1="306.0" x2="306.0" y1="114.5" y2="70.1" class="err his"/><circle cx="306.0" cy="88.9" r="4" class="pt his"/><text x="306.0" y="62.1" class="stars" text-anchor="middle">***</text></svg></div></figure>
+    <figure><div class="diagram"><svg viewBox="0 0 340 280" role="img"><line x1="69.0" y1="57.0" x2="98.5" y2="50.4" class="bone early"/><line x1="69.0" y1="57.0" x2="61.8" y2="91.0" class="bone early"/><line x1="61.8" y1="91.0" x2="50.8" y2="91.4" class="bone early"/><line x1="98.5" y1="50.4" x2="87.7" y2="74.9" class="bone early"/><line x1="87.7" y1="74.9" x2="65.7" y2="79.4" class="bone early"/><line x1="69.0" y1="57.0" x2="71.9" y2="125.8" class="bone early"/><line x1="98.5" y1="50.4" x2="101.1" y2="124.3" class="bone early"/><line x1="71.9" y1="125.8" x2="101.1" y2="124.3" class="bone early"/><line x1="71.9" y1="125.8" x2="49.9" y2="173.1" class="bone early"/><line x1="49.9" y1="173.1" x2="35.0" y2="232.0" class="bone early"/><line x1="101.1" y1="124.3" x2="119.7" y2="172.2" class="bone early"/><line x1="119.7" y1="172.2" x2="134.9" y2="226.5" class="bone early"/><circle cx="82.4" cy="24.6" r="6" class="headc early"/><line x1="65.7" y1="79.4" x2="65.7" y2="53.7" class="bone hot"/><line x1="10.0" x2="160.0" y1="53.7" y2="53.7" class="ref"/><text x="85" y="254" class="lab" text-anchor="middle">2003–07</text><text x="85" y="272" class="val" text-anchor="middle">-18 cm</text><line x1="236.5" y1="54.8" x2="275.5" y2="46.5" class="bone late"/><line x1="236.5" y1="54.8" x2="231.6" y2="90.0" class="bone late"/><line x1="231.6" y1="90.0" x2="212.7" y2="83.4" class="bone late"/><line x1="275.5" y1="46.5" x2="268.9" y2="50.1" class="bone late"/><line x1="268.9" y1="50.1" x2="243.8" y2="45.3" class="bone late"/><line x1="236.5" y1="54.8" x2="241.0" y2="125.4" class="bone late"/><line x1="275.5" y1="46.5" x2="272.1" y2="124.7" class="bone late"/><line x1="241.0" y1="125.4" x2="272.1" y2="124.7" class="bone late"/><line x1="241.0" y1="125.4" x2="220.3" y2="169.6" class="bone late"/><line x1="220.3" y1="169.6" x2="204.7" y2="228.0" class="bone late"/><line x1="272.1" y1="124.7" x2="291.9" y2="172.7" class="bone late"/><line x1="291.9" y1="172.7" x2="305.3" y2="231.1" class="bone late"/><circle cx="254.9" cy="22.0" r="6" class="headc late"/><line x1="243.8" y1="45.3" x2="243.8" y2="50.7" class="bone hot"/><line x1="180.0" x2="330.0" y1="50.7" y2="50.7" class="ref"/><text x="255" y="254" class="lab" text-anchor="middle">2017–19</text><text x="255" y="272" class="val" text-anchor="middle">+4 cm</text></svg></div></figure>
+  </div>
+</section>
+<section class="wrap change">
+  <h3 class="sub-h">Serve: straighter body at contact</h3>
+  <p>His shoulders were 32 cm to the side of his feet at contact in 2003–07 and 21 cm in 2017–19.</p>
+  <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-src="https://media.offpolicyinc.com/federer/serve_lean_0.mp4">Pair 1</button><button role="tab" aria-selected="false" data-src="https://media.offpolicyinc.com/federer/serve_lean_1.mp4">Pair 2</button><button role="tab" aria-selected="false" data-src="https://media.offpolicyinc.com/federer/serve_lean_2.mp4">Pair 3</button></div>
+  <div class="player"><video src="https://media.offpolicyinc.com/federer/serve_lean_0.mp4" loop muted playsinline controls preload="auto"></video></div>
+  <div class="pair">
+    <figure><div class="diagram"><svg viewBox="0 0 340 280" role="img"><text x="14" y="135" class="ylabel" text-anchor="middle" transform="rotate(-90 14 135)">Shoulders left of feet (cm)</text><circle cx="70" cy="12" r="4" class="pt his"/><text x="79" y="16" class="key-t">Federer</text><line x1="146" x2="164" y1="12" y2="12" class="line other"/><circle cx="155" cy="12" r="4" class="pt other"/><text x="170" y="16" class="key-t">Opponents</text><line x1="64" x2="334" y1="221.8" y2="221.8" class="grid"/><text x="56" y="225.8" class="tick" text-anchor="end">20</text><line x1="64" x2="334" y1="171.2" y2="171.2" class="grid"/><text x="56" y="175.2" class="tick" text-anchor="end">26</text><line x1="64" x2="334" y1="120.6" y2="120.6" class="grid"/><text x="56" y="124.6" class="tick" text-anchor="end">33</text><line x1="64" x2="334" y1="70.1" y2="70.1" class="grid"/><text x="56" y="74.1" class="tick" text-anchor="end">40</text><text x="92.0" y="264" class="era" text-anchor="middle">2003-07</text><text x="165.3" y="264" class="era" text-anchor="middle">2008-12</text><text x="238.7" y="264" class="era" text-anchor="middle">2013-15</text><text x="312.0" y="264" class="era" text-anchor="middle">2017-19</text><polyline class="line other" points="98.0,113.5 171.3,128.5 244.7,138.6 318.0,143.1"/><line x1="98.0" x2="98.0" y1="138.9" y2="82.8" class="err other"/><circle cx="98.0" cy="113.5" r="4" class="pt other"/><line x1="171.3" x2="171.3" y1="195.2" y2="70.1" class="err other"/><circle cx="171.3" cy="128.5" r="4" class="pt other"/><line x1="244.7" x2="244.7" y1="176.3" y2="108.4" class="err other"/><circle cx="244.7" cy="138.6" r="4" class="pt other"/><line x1="318.0" x2="318.0" y1="196.6" y2="105.6" class="err other"/><circle cx="318.0" cy="143.1" r="4" class="pt other"/><polyline class="line his" points="86.0,130.6 159.3,166.9 232.7,192.3 306.0,208.3"/><line x1="86.0" x2="86.0" y1="148.2" y2="116.1" class="err his"/><circle cx="86.0" cy="130.6" r="4" class="pt his"/><line x1="159.3" x2="159.3" y1="181.4" y2="148.8" class="err his"/><circle cx="159.3" cy="166.9" r="4" class="pt his"/><line x1="232.7" x2="232.7" y1="210.6" y2="176.2" class="err his"/><circle cx="232.7" cy="192.3" r="4" class="pt his"/><line x1="306.0" x2="306.0" y1="221.8" y2="197.7" class="err his"/><circle cx="306.0" cy="208.3" r="4" class="pt his"/><text x="306.0" y="189.7" class="stars" text-anchor="middle">***</text></svg></div></figure>
+    <figure><div class="diagram"><svg viewBox="0 0 340 280" role="img"><line x1="102.3" x2="102.3" y1="14" y2="232" class="ref"/><line x1="58.9" y1="94.6" x2="74.9" y2="76.0" class="bone early"/><line x1="58.9" y1="94.6" x2="77.5" y2="110.4" class="bone early"/><line x1="77.5" y1="110.4" x2="97.3" y2="100.0" class="bone early"/><line x1="74.9" y1="76.0" x2="84.7" y2="48.7" class="bone early"/><line x1="84.7" y1="48.7" x2="85.1" y2="25.6" class="bone early"/><line x1="58.9" y1="94.6" x2="77.6" y2="143.4" class="bone early"/><line x1="74.9" y1="76.0" x2="93.8" y2="138.5" class="bone early"/><line x1="77.6" y1="143.4" x2="93.8" y2="138.5" class="bone early"/><line x1="77.6" y1="143.4" x2="97.5" y2="186.3" class="bone early"/><line x1="97.5" y1="186.3" x2="99.4" y2="232.0" class="bone early"/><line x1="93.8" y1="138.5" x2="111.1" y2="183.6" class="bone early"/><line x1="111.1" y1="183.6" x2="105.3" y2="231.7" class="bone early"/><circle cx="60.4" cy="66.8" r="6" class="headc early"/><line x1="66.9" y1="85.3" x2="102.3" y2="85.3" class="bone hot"/><text x="85" y="254" class="lab" text-anchor="middle">2003–07</text><text x="85" y="272" class="val" text-anchor="middle">32 cm</text><line x1="269.4" x2="269.4" y1="14" y2="232" class="ref"/><line x1="236.5" y1="93.3" x2="255.1" y2="71.7" class="bone late"/><line x1="236.5" y1="93.3" x2="257.0" y2="107.9" class="bone late"/><line x1="257.0" y1="107.9" x2="276.2" y2="95.3" class="bone late"/><line x1="255.1" y1="71.7" x2="266.9" y2="47.3" class="bone late"/><line x1="266.9" y1="47.3" x2="268.2" y2="22.0" class="bone late"/><line x1="236.5" y1="93.3" x2="247.8" y2="142.8" class="bone late"/><line x1="255.1" y1="71.7" x2="263.5" y2="139.0" class="bone late"/><line x1="247.8" y1="142.8" x2="263.5" y2="139.0" class="bone late"/><line x1="247.8" y1="142.8" x2="268.1" y2="183.9" class="bone late"/><line x1="268.1" y1="183.9" x2="268.1" y2="230.2" class="bone late"/><line x1="263.5" y1="139.0" x2="277.8" y2="183.1" class="bone late"/><line x1="277.8" y1="183.1" x2="270.7" y2="231.4" class="bone late"/><circle cx="242.7" cy="63.8" r="6" class="headc late"/><line x1="245.8" y1="82.5" x2="269.4" y2="82.5" class="bone hot"/><text x="255" y="254" class="lab" text-anchor="middle">2017–19</text><text x="255" y="272" class="val" text-anchor="middle">21 cm</text></svg></div></figure>
+  </div>
+</section></div>
+<div class="cat" id="methods" role="tabpanel">
+<section class="wrap methods">
+  <h3>Data</h3>
+  <ul class="support">
+    <li>TV recordings of 45 of his US Open matches, 2003–2019, some only highlights. We only include live play from the main camera angle, in which Federer is standing on the near end.</li>
+    <li>His joints (head, shoulders, elbows, wrists, hips, knees, ankles and feet) were tracked in every frame.</li>
+    <li>Every hit was labelled automatically as a serve, forehand or backhand.</li>
+    <li>Distances are in centimetres, from the court's known size.</li>
+  </ul>
+  <h3>Syllables</h3>
+  <ul class="support"><li>His movement was split into short, repeated movements ("syllables") with <a href="https://doi.org/10.1038/s41592-024-02318-2" target="_blank" rel="noopener noreferrer">keypoint-MoSeq</a>, from his joints alone. It found 30; a typical one lasts 0.5 s.</li><li>The serve was over-segmented into several syllables in a row, so they were merged into one, Serve.</li><li>On the map, each dot is one occurrence of a syllable, and similar movements sit close together (UMAP).</li><li>The names of each syllable were given by hand after watching each syllable's typical clips.</li></ul>
+  <h3>Then vs Now</h3>
+  <ul class="support">
+    <li>His 274 forehands and 375 serves, typical strokes only: none hit on the run or far from the baseline. His 166 backhands were tested the same way and nothing changed reliably.</li>
+    <li>Camera zoom, picture quality, where he stood and how he moved were regressed out before comparing.</li>
+    <li>Each match gives one number, his average. 2017–19 is compared with 2003–07 by Welch's t-test, corrected (Holm) for the number of measures. A change is shown when the corrected p is below 0.05 and it is at least 0.4 of the spread between his strokes.</li>
+    <li>Charts: each dot is an era's average with its 95% interval; stars mark the corrected p (* below 0.05, ** 0.01, *** 0.001). The grey line is his opponents in the same matches.</li>
+  </ul>
+</section>
+</div>
+
+
+<script>
+  // Only the videos on screen play, so the browser isn't decoding all of them at once.
+  const seen = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause()),
+                                        { threshold: 0.5 });
+  document.querySelectorAll("video").forEach(v => seen.observe(v));
+  // Category tabs: one category shown at a time, remembered in the address (#serve).
+  const cats = document.querySelectorAll("nav.cats button");
+  function showCat(id) {
+    if (!document.getElementById(id)) id = cats[0].dataset.cat;
+    cats.forEach(b => b.setAttribute("aria-selected", b.dataset.cat === id));
+    document.querySelectorAll(".cat").forEach(c => c.hidden = c.id !== id);
+    document.querySelectorAll(".cat[hidden] video").forEach(v => v.pause());
+  }
+  cats.forEach(b => b.addEventListener("click", () => { history.replaceState(null, "", "#" + b.dataset.cat); showCat(b.dataset.cat); }));
+  showCat(location.hash.slice(1));
+  if (location.hash) addEventListener("load", () => setTimeout(() => scrollTo(0, 0)));   // open on the tab, not past the title
+
+  document.querySelectorAll("section.change").forEach(s => {
+    const v = s.querySelector("video"), tabs = s.querySelectorAll(".tabs button");
+    if (!v) return;
+    tabs.forEach(b => b.addEventListener("click", () => {
+      tabs.forEach(t => t.setAttribute("aria-selected", t === b));
+      v.src = b.dataset.src; v.play().catch(() => {});
+    }));
+  });
+</script>
+</div>
+
+    </div>
+  </article>
+
+
+</main>
+<script src="/assets/app.js?v=55e69978d5" defer></script>
+</body>
+</html>

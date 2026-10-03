@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skeleton Tennis</title>
+<style>
+  :root { --bg: #0b0d10; --panel: #14171c; --text: #eceef1; --muted: #8d95a1; --line: #262c35;
+          --blue: #0096ff; --orange: #ff8200; --good: #3ecf72; --half: #f2c14e; --bad: #ff5f56; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--text);
+               font: 16px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 880px; margin: 0 auto; padding: 18px 16px 40px; }
+  header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  h1 { font-size: 1.25rem; margin: 0; }
+  .score { font-variant-numeric: tabular-nums; color: var(--muted); }
+  .score b { color: var(--text); font-size: 1.1rem; }
+  .how { color: var(--muted); margin: 6px 0 14px; font-size: .95rem; }
+  .blue { color: var(--blue); } .orange { color: var(--orange); }
+
+  .ladder { display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px; margin-bottom: 6px; }
+  .ladder span { height: 6px; border-radius: 3px; background: var(--line); }
+  .ladder .now { background: var(--text); }
+  .ladder .p2 { background: var(--good); } .ladder .p1 { background: var(--half); } .ladder .p0 { background: var(--bad); }
+  .level { color: var(--muted); font-size: .9rem; margin-bottom: 8px; }
+  .level b { color: var(--text); }
+
+  video { width: 100%; aspect-ratio: 16 / 9; background: #000; border: 1px solid var(--line); border-radius: 10px;
+          display: block; }
+
+  .slots { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+  .slot { background: var(--panel); border: 1px solid var(--line); border-left: 4px solid; border-radius: 8px;
+          padding: 9px 12px; min-height: 58px; cursor: pointer; text-align: left; font: inherit; color: var(--text); }
+  .slot small { display: block; font-size: .75rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+  .slot span { font-weight: 600; }
+  .slot span:empty::before { content: "Pick a name below"; color: var(--muted); font-weight: 400; }
+  #slot0 { border-left-color: var(--blue); } #slot0 small { color: var(--blue); }
+  #slot1 { border-left-color: var(--orange); } #slot1 small { color: var(--orange); }
+  .slot.active { outline: 2px solid currentColor; }
+  #slot0.active { outline-color: var(--blue); } #slot1.active { outline-color: var(--orange); }
+  .choices { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .choice { background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 999px;
+            padding: 9px 16px; font: inherit; cursor: pointer; }
+  .choice:hover:not(:disabled) { border-color: var(--muted); }
+  .choice.b0 { border-color: var(--blue); background: color-mix(in srgb, var(--blue) 22%, var(--panel)); }
+  .choice.b1 { border-color: var(--orange); background: color-mix(in srgb, var(--orange) 22%, var(--panel)); }
+  .choice:disabled { cursor: default; }
+  .choice.right { border-color: var(--good); }
+  button.primary { background: var(--text); color: var(--bg); border: 0; border-radius: 8px; padding: 11px 20px;
+                   font: inherit; font-weight: 700; cursor: pointer; }
+  button.primary:hover { filter: brightness(.9); }
+
+  .history { list-style: none; padding: 0; margin: 14px 0 0; font-size: .92rem; }
+  .history li { padding: 5px 0; border-top: 1px solid var(--line); }
+  .history .lv { color: var(--muted); margin-right: 8px; }
+  .history em { font-style: normal; color: var(--muted); }
+  .ok { color: var(--good); } .no { color: var(--bad); }
+
+  #end { text-align: center; padding-top: 10px; }
+  .big { font-size: 3.4rem; font-weight: 800; margin: 4px 0 0; font-variant-numeric: tabular-nums; }
+  #end .history { text-align: left; }
+  #again { margin-top: 20px; }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Skeleton Tennis</h1>
+    <span class="score">Score <b id="score">0</b> / 20</span>
+  </header>
+  <p class="how">Pick the <b class="blue">blue</b> and <b class="orange">orange</b> player from their skeletons.
+    One serve each. Ten levels, each harder than the last.</p>
+
+  <section id="round">
+    <div class="ladder" id="ladder"></div>
+    <div class="level">Level <b id="level">1</b> of 10</div>
+    <video id="clip" autoplay muted playsinline></video>
+    <div class="slots">
+      <button class="slot" id="slot0"><small>Blue player</small><span></span></button>
+      <button class="slot" id="slot1"><small>Orange player</small><span></span></button>
+    </div>
+    <div class="choices" id="choices"></div>
+    <ol class="history" id="history"></ol>
+  </section>
+
+  <section id="end" class="hidden">
+    <div class="big" id="final"></div>
+    <ol class="history" id="recap"></ol>
+    <button class="primary" id="again">Play again</button>
+  </section>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const CHOICES = 5;                                   // names offered per level
+let levels = [], rounds = [], at = 0, score = 0, picked = [null, null], active = 0;
+
+const shuffle = xs => { xs = [...xs]; for (let i = xs.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1)); [xs[i], xs[j]] = [xs[j], xs[i]]; } return xs; };
+
+// The two players plus decoys: other players from the same level first, then from the levels nearest it,
+// so the decoys are of about the same fame (and mostly the same era).
+function candidates(level, players) {
+  const names = players.map(p => p.name), out = [...names];
+  const pool = l => [...new Set(levels.filter(x => x.level === l).flatMap(x => x.rounds.flatMap(r => r.players.map(p => p.name))))];
+  for (let d = 0; out.length < CHOICES && d < 10; d++) {
+    const ring = d ? [...pool(level - d), ...pool(level + d)] : pool(level);
+    for (const n of shuffle(ring)) if (out.length < CHOICES && !out.includes(n)) out.push(n);
+  }
+  return shuffle(out);
+}
+
+function ladder() {
+  $("ladder").innerHTML = rounds.map((r, i) =>
+    `<span class="${"got" in r ? "p" + r.got : i === at ? "now" : ""}"></span>`).join("");
+}
+
+function start() {
+  rounds = levels.map(l => {
+    const r = l.rounds[Math.floor(Math.random() * l.rounds.length)];
+    return {...r, level: l.level, names: candidates(l.level, r.players)};
+  });
+  at = 0; score = 0;
+  $("history").innerHTML = "";
+  $("end").classList.add("hidden"); $("round").classList.remove("hidden");
+  show();
+}
+
+function show() {
+  const r = rounds[at];
+  $("level").textContent = r.level;
+  $("score").textContent = score;
+  play(0);
+  picked = [null, null]; active = 0;
+  draw();
+  ladder();
+}
+
+// Slots and name buttons from the current state.
+function draw() {
+  const r = rounds[at];
+  for (const k of [0, 1]) {
+    $("slot" + k).querySelector("span").textContent = picked[k] || "";
+    $("slot" + k).classList.toggle("active", active === k);
+  }
+  $("choices").innerHTML = r.names.map((n, i) => {
+    const k = picked.indexOf(n);
+    return `<button class="choice${k >= 0 ? " b" + k : ""}" data-name="${n}">${n}</button>`;
+  }).join("");
+}
+
+function choose(name) {
+  const other = 1 - active;
+  if (picked[other] === name) picked[other] = null;   // moved from the other slot
+  picked[active] = name;
+  if (picked[other] === null) active = other;
+  draw();
+  if (picked[0] && picked[1]) guess();
+}
+
+// The level's two rallies in turn, over and over.
+function play(k) {
+  const r = rounds[at];
+  r.playing = k;
+  $("clip").src = "https://media.offpolicyinc.com/skeleton-tennis/" + r.clips[k];
+}
+
+// Score the picks, add one line for the level below the names, and go straight on.
+function guess() {
+  const r = rounds[at], got = [0, 1].map(k => picked[k] === r.players[k].name);
+  r.got = got.filter(Boolean).length;
+  score += r.got;
+  const part = (k, c) => `<span class="tick ${got[k] ? "ok" : "no"}">${got[k] ? "✓" : "✗"}</span>` +
+    `<span class="${c}">${r.players[k].name}</span>` + (got[k] ? "" : ` <em>(not ${picked[k]})</em>`);
+  $("history").insertAdjacentHTML("afterbegin",
+    `<li><span class="lv">Level ${r.level}</span>${part(0, "blue")} &nbsp; ${part(1, "orange")}</li>`);
+  $("score").textContent = score;
+  if (++at < rounds.length) show();
+  else end();
+}
+
+function end() {
+  $("round").classList.add("hidden"); $("end").classList.remove("hidden");
+  $("clip").removeAttribute("src");
+  $("final").textContent = `${score} / 20`;
+  $("recap").innerHTML = $("history").innerHTML;            // the same lines, latest first
+}
+
+$("clip").onended = () => play((rounds[at].playing + 1) % rounds[at].clips.length);
+$("choices").onclick = e => { const b = e.target.closest(".choice"); if (b) choose(b.dataset.name); };
+for (const k of [0, 1]) $("slot" + k).onclick = () => { active = k; draw(); };
+document.onkeydown = e => {
+  const i = Number(e.key) - 1;
+  if (!$("round").classList.contains("hidden") && i >= 0 && i < CHOICES) choose(rounds[at].names[i]);
+};
+$("again").onclick = start;
+fetch("manifest.json").then(r => r.json()).then(m => { levels = m.levels.filter(l => l.rounds.length); start(); });
+</script>
+</body>
+</html>

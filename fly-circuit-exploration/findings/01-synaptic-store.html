@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400&display=swap">
+<title>Finding 1: The fly&#x27;s running sum of its own steps may be held in synapse strengths, on two hΔ neuron types nobody has recorded</title>
+<style>
+  :root { --ink:#1b1b1f; --muted:#5a5f6a; --bg:#fff; --card:#fff; --line:#e3e2dc; --accent:#b4432c; --accent2:#2a6f97; --good:#2f7d4a; --warn:#b07a12; --purple:#6a4c93; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 Geist,Helvetica,Arial,sans-serif; }
+  main { max-width:780px; margin:0 auto; padding:36px 22px 60px; }
+  h1 { font-size:27px; line-height:1.2; margin:0 0 14px; }
+  h2 { font-size:19px; margin:32px 0 8px; padding-top:12px; border-top:1px solid var(--line); }
+  p { margin:0 0 14px; } p.summary { }
+  table { border-collapse:collapse; width:100%; font-size:14.5px; margin:8px 0 16px; } th,td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); vertical-align:top; } th { color:var(--muted); font-weight:600; } td.n, th.n { text-align:right; font-variant-numeric:tabular-nums; }
+  ul, ol { margin:6px 0 14px; padding-left:22px; } li { margin:4px 0; }
+  code { font-size:13px; background:#f4f4f4; padding:1px 4px; border-radius:0; }
+  figure { margin:16px 0 20px; } figcaption { color:var(--muted); font-size:13px; margin-top:6px; }
+  svg text { font:13px Geist,Helvetica,Arial,sans-serif; }
+  .anim { border:1px solid var(--line); border-radius:0; background:var(--card); padding:12px 14px; margin:16px 0 20px; }
+  .anim .ctl { display:flex; gap:10px; align-items:center; font-size:13px; color:var(--muted); margin-top:6px; flex-wrap:wrap; }
+  .anim button { font:13px inherit; padding:3px 10px; border:1px solid var(--line); border-radius:0; background:#fff; cursor:pointer; }
+  .anim input[type=range] { width:160px; }
+  .nav { display:flex; gap:14px; font-size:13px; margin:0 0 18px; } .nav a { color:var(--muted); text-decoration:none; }
+  .status b { color:var(--warn); }
+  .status ul { margin:4px 0 0; padding-left:20px; }
+  .kicker { color:var(--accent); font-weight:600; letter-spacing:.04em; text-transform:uppercase; font-size:12px; margin-bottom:6px; }
+  .methods { color:var(--muted); font-size:14px; } .methods h2 { color:var(--ink); }
+  a { color:var(--accent2); }
+  table { display:block; max-width:100%; overflow-x:auto; }  /* wide tables scroll inside themselves on a phone */
+</style>
+</head>
+<body><nav style="padding:12px 16px;font:500 14px/20px Geist,'Helvetica Neue',Arial,sans-serif"><a href="/fly-circuit-exploration/" style="color:inherit">&larr; Fast-weight continual learning in a fly</a></nav>
+<main>
+  <div class="kicker">Finding 1 of 4</div><h1>The fly's running sum of its own steps may be held in synapse strengths, on two hΔ neuron types nobody has recorded</h1>
+<p class="summary">A fly that leaves food and wanders in the dark can walk straight back, so it keeps a running vector sum of its steps. The neurons that report each step, hΔB, are known. Maimon &amp; Abbott 2026 proposed that the columnar populations feeding the goal neurons FC2 could each store a vector, for different durations, as activity or as synaptic weights; two of those populations have since been recorded in the Maimon lab and both integrate over seconds, with a leak (hΔG: Janke 2025; hΔA: Avritzer 2026); whether the integration is done by firing or by synapses is not yet determined. A minutes-long sum that survives a detour has not been found in any of them. This page asks what the wiring says about a synaptic version: hΔB's travel-direction bump lands on hΔH and hΔI in the matching column, so each step would strengthen only the synapses for its direction and the weight pattern across columns would be the sum; dopamine types cover every cell of both as a write gate; and their outputs reach FC2 and the steering neurons PFL3. The connectome cannot decide between activity and synaptic storage, and it cannot tell a leaky integrator from a lasting one. What it can do is say where to look, and hΔH and hΔI have not been looked at.</p>
+<div class="anim" id="storeAnim">
+  <svg viewBox="0 0 820 300" width="100%" role="img" aria-label="Animation: a walk being written into synapse strengths">
+    <defs><marker id="sa" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="#1b1b1f"/></marker></defs>
+    <text x="20" y="22" font-weight="700" font-size="14">The walk</text>
+    <circle cx="110" cy="230" r="7" fill="#b4432c"/><text x="110" y="250" text-anchor="middle" font-size="11">food</text>
+    <polyline id="saTrail" points="" fill="none" stroke="#9dbdd3" stroke-width="3"/>
+    <circle id="saFly" cx="110" cy="230" r="6" fill="#1b1b1f"/>
+    <text id="saStep" x="20" y="285" font-size="12" fill="#5a5f6a"></text>
+    <text x="300" y="22" font-weight="700" font-size="14">hΔB right now</text>
+    <g id="saBump"></g>
+    <text x="300" y="150" font-weight="700" font-size="14">Synapse strengths (the store)</text>
+    <g id="saW"></g>
+    <text x="640" y="22" font-weight="700" font-size="14">What the store holds</text>
+    <circle cx="720" cy="120" r="55" fill="none" stroke="#e3e2dc"/>
+    <text x="720" y="58" text-anchor="middle" font-size="10" fill="#5a5f6a">N</text>
+    <line id="saVec" x1="720" y1="120" x2="720" y2="120" stroke="#1b1b1f" stroke-width="4" marker-end="url(#sa)"/>
+    <text id="saVecT" x="720" y="200" text-anchor="middle" font-size="13" font-weight="700"></text>
+    <text x="720" y="220" text-anchor="middle" font-size="11" fill="#5a5f6a">read from the weights</text>
+  </svg>
+  <div class="ctl"><button id="saPlay">Pause</button><button id="saReset">Restart</button><span>The fly walks 6 steps north, 4 south, 3 east. Each step, hΔB's bump strengthens the synapses in its own column. The weights are the running sum; the arrow is what a downstream reader sees. <a href="01-how-it-works.html">Step-by-step version →</a></span></div>
+</div>
+<script>
+(function(){
+  const N=8, cols=[...Array(N).keys()].map(i=>i*2*Math.PI/N); // 0=E, 2=N, 4=W, 6=S
+  const disp=[4,5,6,7,0,1,2,3], lab={4:'W',6:'S',0:'E',2:'N'};
+  const plan=[...Array(6).fill(Math.PI/2),...Array(4).fill(-Math.PI/2),...Array(3).fill(0)];
+  let W=new Array(N).fill(0), k=0, t=0, playing=true, trail=[[110,230]];
+  const g=id=>document.getElementById(id);
+  function bars(gid,vals,base,scale,fill){const el=g(gid);let s='';disp.forEach((c,i)=>{const x=300+i*36,h=vals[c]*scale;s+=`<rect x="${x}" y="${base-h}" width="28" height="${h}" fill="${fill}"/>`;if(lab[c]!==undefined)s+=`<text x="${x+14}" y="${base+14}" text-anchor="middle" font-size="11" fill="#5a5f6a">${lab[c]}</text>`;});s+=`<line x1="296" y1="${base}" x2="${300+N*36}" y2="${base}" stroke="#c9c6bd"/>`;el.innerHTML=s;}
+  function bump(h){return cols.map(c=>Math.max(0,Math.cos(c-h)));}
+  function draw(h){
+    bars('saBump',h===null?new Array(N).fill(0):bump(h),110,60,'#2a6f97');
+    bars('saW',W,270,14,'#1b1b1f');
+    let re=0,im=0;W.forEach((w,i)=>{re+=w*Math.cos(cols[i]);im+=w*Math.sin(cols[i]);});
+    const L=Math.hypot(re,im)/2, a=Math.atan2(im,re);
+    g('saVec').setAttribute('x2',720+L*9*Math.cos(a));g('saVec').setAttribute('y2',120-L*9*Math.sin(a));
+    g('saVecT').textContent=L<0.2?'nothing stored':`${L.toFixed(1)} steps at ${((450-Math.round(a*180/Math.PI))%360)}°`;
+    g('saStep').textContent=k>=plan.length?'done: fly is 2 north, 3 east of the food':`step ${k+1} of ${plan.length}: ${k<6?'north':k<10?'south':'east'}`;
+  }
+  function tick(){
+    if(!playing)return;
+    t+=1;
+    if(k<plan.length){const h=plan[k];const f=(t%40)/40;const last=trail[trail.length-1];const [x0,y0]=trail[trail.length-1];
+      g('saFly').setAttribute('cx',x0+15*f*Math.cos(h));g('saFly').setAttribute('cy',y0-15*f*Math.sin(h));
+      draw(h);
+      if(t%40===0){bump(h).forEach((b,i)=>W[i]+=b);trail.push([x0+15*Math.cos(h),y0-15*Math.sin(h)]);g('saTrail').setAttribute('points',trail.map(p=>p.join(',')).join(' '));k++;draw(k<plan.length?plan[k]:null);}
+    } else if(t%40===0&&t>plan.length*40+120){reset();}
+    requestAnimationFrame(tick);
+  }
+  function reset(){W=new Array(N).fill(0);k=0;t=0;trail=[[110,230]];g('saTrail').setAttribute('points','');g('saFly').setAttribute('cx',110);g('saFly').setAttribute('cy',230);draw(plan[0]);}
+  g('saPlay').onclick=()=>{playing=!playing;g('saPlay').textContent=playing?'Pause':'Play';if(playing)tick();};
+  g('saReset').onclick=()=>{reset();};
+  reset();tick();
+})();
+</script>
+
+<h2>The question</h2>
+<p>To return to a place it cannot see, the fly must know the vector from that place to itself: the sum of every step since leaving, each step counted in world coordinates. The fan-shaped body has the neurons that report each step: about twenty hΔB cells whose bump of activity sits at the column matching the direction the fly is moving, with height proportional to speed (Lu 2022; Lyu 2022). Each column is a compass direction, so the bump is the current step as a vector. The question is what adds these steps up, and for how long.</p>
+<h2>Two ways to hold a running sum</h2>
+<figure>
+    <svg viewBox="0 0 820 250" width="100%" role="img" aria-label="Activity versus synaptic integration">
+      <defs><marker id="b" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,4 L0,8 z" fill="#1b1b1f"/></marker><marker id="r" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,4 L0,8 z" fill="#b4432c"/></marker></defs>
+      <text x="20" y="22" font-weight="700">A · activity integrator</text>
+      <rect x="20" y="40" width="120" height="44" rx="8" fill="#2a6f97"/><text x="80" y="66" text-anchor="middle" fill="#fff" font-weight="700">hΔB bump</text>
+      <rect x="230" y="40" width="170" height="44" rx="8" fill="#5a86a8"/><text x="315" y="60" text-anchor="middle" fill="#fff" font-weight="700">integrator population</text><text x="315" y="76" text-anchor="middle" fill="#fff" font-size="12">bump = running total</text>
+      <line x1="140" y1="62" x2="228" y2="62" stroke="#1b1b1f" stroke-width="2" marker-end="url(#b)"/>
+      <path d="M330 84 C 380 130, 250 130, 300 86" fill="none" stroke="#b4432c" stroke-width="3" marker-end="url(#r)"/><text x="315" y="145" text-anchor="middle" fill="#b4432c" font-size="12" font-weight="700">recurrence, gain ≈ 1 required</text>
+      <text x="20" y="200" font-size="12" fill="#5a5f6a">Memory = firing pattern. Needs strong, structured self-connections.</text>
+      <text x="440" y="16" font-weight="700">B · synaptic integrator</text>
+      <rect x="440" y="40" width="120" height="44" rx="8" fill="#2a6f97"/><text x="500" y="66" text-anchor="middle" fill="#fff" font-weight="700">hΔB bump</text>
+      <rect x="650" y="40" width="150" height="44" rx="8" fill="#f6e7e3" stroke="#b4432c" stroke-width="2"/><text x="725" y="60" text-anchor="middle" font-weight="700">store population</text><text x="725" y="76" text-anchor="middle" font-size="12">fires only when driven</text>
+      <g stroke="#b4432c" stroke-width="2"><line x1="560" y1="50" x2="648" y2="50"/><line x1="560" y1="62" x2="648" y2="62" stroke-width="5"/><line x1="560" y1="74" x2="648" y2="74" stroke-width="3"/></g>
+      <text x="604" y="34" text-anchor="middle" fill="#b4432c" font-size="12" font-weight="700">memory = these synapse strengths</text>
+      <rect x="440" y="130" width="130" height="34" rx="8" fill="#b07a12"/><text x="505" y="152" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">"walking" modulator</text>
+      <line x1="560" y1="136" x2="604" y2="84" stroke="#b07a12" stroke-width="2" marker-end="url(#b)"/>
+      <rect x="440" y="180" width="130" height="34" rx="8" fill="#6a4c93"/><text x="505" y="202" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">"at food" reset</text>
+      <line x1="570" y1="184" x2="630" y2="84" stroke="#6a4c93" stroke-width="2" marker-end="url(#b)"/>
+      <text x="440" y="240" font-size="12" fill="#5a5f6a">Memory = weights. Needs a write gate and a reset, not recurrence.</text>
+    </svg>
+    <figcaption>Left: an activity integrator must feed back on itself with gain near one. Right: a synaptic integrator needs no feedback, but needs a write gate and a reset. The connectome can tell these apart.</figcaption>
+  </figure>
+<p>The first is in activity. A population keeps firing the current total and adds each new step to it. For the total not to leak away, the population must excite itself with a gain of almost exactly one. This is how most models of path integration work.</p>
+<p>The second is in synapses. Nothing keeps firing. Each step makes hΔB strengthen the synapses it is currently using. After a walk, the pattern of synapse strengths across the columns is the sum: six steps north and four south leave the north synapses at six and the south ones at four, and the difference is a vector of length two pointing north. This needs no self-excitation. It does need hΔB to land on its target in the matching column, a signal that says "write now" while the fly walks, a reset at food, and a path from the store to the neurons that steer. Hulse 2021, Goulard 2023 and Maimon &amp; Abbott 2026 have all described vector memories of this kind, and Dan 2024 modelled a goal angle stored as a set of synaptic weights onto the steering neurons.</p>
+<h2>What has been recorded</h2>
+<p>Two of the hΔ populations that feed FC2 now have physiology, both from the Maimon lab and both available as thesis abstracts.</p>
+<ul><li><b>hΔG</b> (Janke 2025): activity drops sharply when the fly reaches sugar, then its mean rises over minutes while the amplitude of a sinusoidal bump tracks the distance walked over the past few seconds. The bump is built by integrating input from vΔE, with a continuous leak, so it is not a perfect path integral. The same vΔ→hΔ motif recurs across layers of the fan-shaped body.</li><li><b>hΔA</b> (Avritzer 2026): integrates the fly's recent travel direction over a window of 7–10 s and feeds the steering circuit as an inertia term that promotes continuing in that direction.</li></ul>
+<p>Both are integrators, both leak over seconds, and both are read out in calcium; neither abstract determines whether the integrating step is recurrent firing, a cellular process or a synapse that facilitates and decays, and Maimon &amp; Abbott 2026 list all of these as candidate mechanisms. hΔK adds a third measured case, a persistent bump that accumulates odour evidence and holds an upwind heading for tens of seconds (Lanz 2025; Kathman 2026). None of them has been shown to hold a displacement across a detour of minutes and point home afterward, which is what the behaviour requires (Kim 2017; Behbahani 2021; Titova 2023).</p>
+<h2>What the wiring cannot decide</h2>
+<p>Could a lasting sum be held in activity somewhere in the fan-shaped body? Counting each population's synapses onto itself, binned by column offset, and taking the cosine component as a share of total input gives the same answer for the fan-shaped body as for the compass, whose bump does persist for minutes: vΔA_a 0.145, EPG 0.050, the hΔ types 0.01–0.02, the EPG↔PEN shifter loop 0.003. Synapse shares are not gains and set no threshold. The wiring leaves the activity option open, and it cannot distinguish the leaky seconds-scale integration that has been measured from the minutes-scale integration that has not, nor say which mechanism does either.</p>
+<h2>What the wiring points to for a synaptic store</h2>
+<figure>
+<svg viewBox="0 0 820 480" width="100%" role="img" aria-label="Worked example: the same walk written into hΔH and into hΔJ">
+<defs><marker id="ar" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="#1b1b1f"/></marker><marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="#b4432c"/></marker></defs>
+<line x1="20" y1="8.0" x2="800" y2="8.0" stroke="#e3e2dc"/>
+<text x="20" y="36.0" font-weight="700" font-size="16" fill="#1b1b1f">hΔH: stores it</text>
+<text x="20" y="56.0" font-size="12" fill="#5a5f6a">hΔB lands almost entirely in hΔH's own column,</text>
+<text x="20" y="72.0" font-size="12" fill="#5a5f6a">so north steps write north, south steps write south, and the difference survives.</text>
+<text x="20" y="100.0" font-size="12" font-weight="600">1 · where hΔB's synapses land</text>
+<rect x="20" y="176.6" width="22" height="2.4" fill="#b4432c"/>
+<text x="31" y="194.0" text-anchor="middle" font-size="11" fill="#b4432c">opposite</text>
+<rect x="46" y="178.8" width="22" height="0.2" fill="#c9c6bd"/>
+<rect x="72" y="179.0" width="22" height="0.0" fill="#c9c6bd"/>
+<rect x="98" y="174.2" width="22" height="4.8" fill="#c9c6bd"/>
+<rect x="124" y="129.8" width="22" height="49.2" fill="#2a6f97"/>
+<text x="135" y="194.0" text-anchor="middle" font-size="11" fill="#2a6f97">same</text>
+<text x="135" y="125.8" text-anchor="middle" font-size="11" font-weight="700" fill="#2a6f97">82%</text>
+<rect x="150" y="176.1" width="22" height="2.9" fill="#c9c6bd"/>
+<rect x="176" y="179.0" width="22" height="0.0" fill="#c9c6bd"/>
+<rect x="202" y="178.5" width="22" height="0.5" fill="#c9c6bd"/>
+<line x1="16" y1="179.0" x2="228" y2="179.0" stroke="#c9c6bd"/>
+<text x="20" y="211.0" font-size="11" fill="#5a5f6a">column, relative to hΔB's own column</text>
+<line x1="250" y1="144.0" x2="300" y2="144.0" stroke="#1b1b1f" stroke-width="2" marker-end="url(#ar)"/>
+<text x="318" y="100.0" font-size="12" font-weight="600">2 · weights after the walk</text>
+<rect x="318" y="176.3" width="22" height="2.7" fill="#2a6f97"/>
+<rect x="318" y="173.8" width="22" height="2.6" fill="#9dbdd3"/>
+<text x="329.0" y="194.0" text-anchor="middle" font-size="11" fill="#5a5f6a">W</text>
+<rect x="346" y="176.5" width="22" height="2.5" fill="#2a6f97"/>
+<rect x="346" y="147.5" width="22" height="29.0" fill="#9dbdd3"/>
+<rect x="374" y="175.8" width="22" height="3.2" fill="#2a6f97"/>
+<rect x="374" y="135.7" width="22" height="40.0" fill="#9dbdd3"/>
+<text x="385.0" y="194.0" text-anchor="middle" font-size="11" fill="#5a5f6a">S</text>
+<rect x="402" y="176.9" width="22" height="2.1" fill="#2a6f97"/>
+<rect x="402" y="149.3" width="22" height="27.6" fill="#9dbdd3"/>
+<rect x="430" y="175.2" width="22" height="3.8" fill="#2a6f97"/>
+<rect x="430" y="173.4" width="22" height="1.8" fill="#9dbdd3"/>
+<text x="441.0" y="194.0" text-anchor="middle" font-size="11" fill="#5a5f6a">E</text>
+<rect x="458" y="135.5" width="22" height="43.5" fill="#2a6f97"/>
+<rect x="458" y="133.9" width="22" height="1.7" fill="#9dbdd3"/>
+<rect x="486" y="118.9" width="22" height="60.1" fill="#2a6f97"/>
+<rect x="486" y="116.8" width="22" height="2.2" fill="#9dbdd3"/>
+<text x="497.0" y="194.0" text-anchor="middle" font-size="11" fill="#5a5f6a">N</text>
+<rect x="514" y="137.5" width="22" height="41.5" fill="#2a6f97"/>
+<rect x="514" y="136.1" width="22" height="1.4" fill="#9dbdd3"/>
+<line x1="314" y1="179.0" x2="540" y2="179.0" stroke="#c9c6bd"/>
+<text x="318" y="211.0" font-size="11" fill="#5a5f6a">dark: written by the 6 north steps</text><text x="318" y="225.0" font-size="11" fill="#5a5f6a">light: written by the 4 south steps</text>
+<line x1="550" y1="144.0" x2="600" y2="144.0" stroke="#1b1b1f" stroke-width="2" marker-end="url(#ar)"/>
+<text x="620" y="100.0" font-size="12" font-weight="600">3 · the vector it holds</text>
+<circle cx="700" cy="149.0" r="40" fill="none" stroke="#e3e2dc"/>
+
+<line x1="700" y1="149.0" x2="700" y2="113.0" stroke="#c9c6bd" stroke-width="7" stroke-linecap="round"/>
+<line x1="700" y1="149.0" x2="700.8" y2="118.0" stroke="#1b1b1f" stroke-width="4" marker-end="url(#ar)"/>
+<text x="700" y="207.0" text-anchor="middle" font-size="14" font-weight="700" fill="#1b1b1f">1.7 north</text><text x="700" y="223.0" text-anchor="middle" font-size="11" fill="#5a5f6a">grey: the truth, 2 north</text>
+<line x1="20" y1="243.0" x2="800" y2="243.0" stroke="#e3e2dc"/>
+<text x="20" y="271.0" font-weight="700" font-size="16" fill="#b4432c">hΔJ: cancels (rejected)</text>
+<text x="20" y="291.0" font-size="12" fill="#5a5f6a">hΔB lands in hΔJ's own column and the opposite one,</text>
+<text x="20" y="307.0" font-size="12" fill="#5a5f6a">so every step writes both north and south, and the two contributions cancel.</text>
+<text x="20" y="335.0" font-size="12" font-weight="600">1 · where hΔB's synapses land</text>
+<rect x="20" y="397.1" width="22" height="16.9" fill="#b4432c"/>
+<text x="31" y="429.0" text-anchor="middle" font-size="11" fill="#b4432c">opposite</text>
+<text x="31" y="393.1" text-anchor="middle" font-size="11" font-weight="700" fill="#b4432c">28%</text>
+<rect x="46" y="410.1" width="22" height="3.9" fill="#c9c6bd"/>
+<rect x="72" y="414.0" width="22" height="0.0" fill="#c9c6bd"/>
+<rect x="98" y="407.9" width="22" height="6.1" fill="#c9c6bd"/>
+
+<rect x="124" y="392.8" width="22" height="21.2" fill="#2a6f97"/>
+<text x="135" y="429.0" text-anchor="middle" font-size="11" fill="#2a6f97">same</text>
+<text x="135" y="388.8" text-anchor="middle" font-size="11" font-weight="700" fill="#2a6f97">35%</text>
+<rect x="150" y="406.2" width="22" height="7.8" fill="#c9c6bd"/>
+
+<rect x="176" y="414.0" width="22" height="0.0" fill="#c9c6bd"/>
+<rect x="202" y="409.9" width="22" height="4.1" fill="#c9c6bd"/>
+<line x1="16" y1="414.0" x2="228" y2="414.0" stroke="#c9c6bd"/>
+<text x="20" y="446.0" font-size="11" fill="#5a5f6a">column, relative to hΔB's own column</text>
+<line x1="250" y1="379.0" x2="300" y2="379.0" stroke="#1b1b1f" stroke-width="2" marker-end="url(#ar)"/>
+<text x="318" y="335.0" font-size="12" font-weight="600">2 · weights after the walk</text>
+<rect x="318" y="404.7" width="22" height="9.3" fill="#2a6f97"/>
+<rect x="318" y="399.5" width="22" height="5.2" fill="#9dbdd3"/>
+<text x="329.0" y="429.0" text-anchor="middle" font-size="11" fill="#5a5f6a">W</text>
+<rect x="346" y="396.4" width="22" height="17.6" fill="#2a6f97"/>
+<rect x="346" y="380.9" width="22" height="15.5" fill="#9dbdd3"/>
+<rect x="374" y="389.2" width="22" height="24.8" fill="#2a6f97"/>
+<rect x="374" y="366.4" width="22" height="22.7" fill="#9dbdd3"/>
+<text x="385.0" y="429.0" text-anchor="middle" font-size="11" fill="#5a5f6a">S</text>
+<rect x="402" y="396.6" width="22" height="17.4" fill="#2a6f97"/>
+<rect x="402" y="379.8" width="22" height="16.7" fill="#9dbdd3"/>
+<rect x="430" y="406.2" width="22" height="7.8" fill="#2a6f97"/>
+<rect x="430" y="400.0" width="22" height="6.2" fill="#9dbdd3"/>
+<text x="441.0" y="429.0" text-anchor="middle" font-size="11" fill="#5a5f6a">E</text>
+<rect x="458" y="390.8" width="22" height="23.2" fill="#2a6f97"/>
+<rect x="458" y="379.1" width="22" height="11.8" fill="#9dbdd3"/>
+<rect x="486" y="379.9" width="22" height="34.1" fill="#2a6f97"/>
+<rect x="486" y="363.3" width="22" height="16.5" fill="#9dbdd3"/>
+<text x="497.0" y="429.0" text-anchor="middle" font-size="11" fill="#5a5f6a">N</text>
+<rect x="514" y="388.9" width="22" height="25.1" fill="#2a6f97"/>
+<rect x="514" y="377.3" width="22" height="11.6" fill="#9dbdd3"/>
+<line x1="314" y1="414.0" x2="540" y2="414.0" stroke="#c9c6bd"/>
+<text x="318" y="446.0" font-size="11" fill="#5a5f6a">dark: written by the 6 north steps</text><text x="318" y="460.0" font-size="11" fill="#5a5f6a">light: written by the 4 south steps</text>
+<line x1="550" y1="379.0" x2="600" y2="379.0" stroke="#1b1b1f" stroke-width="2" marker-end="url(#ar)"/>
+<text x="620" y="335.0" font-size="12" font-weight="600">3 · the vector it holds</text>
+<circle cx="700" cy="384.0" r="40" fill="none" stroke="#e3e2dc"/>
+
+<line x1="700" y1="384.0" x2="700" y2="348.0" stroke="#c9c6bd" stroke-width="7" stroke-linecap="round"/>
+<line x1="700" y1="384.0" x2="699.0" y2="378.9" stroke="#b4432c" stroke-width="4" marker-end="url(#arr)"/>
+<text x="700" y="442.0" text-anchor="middle" font-size="14" font-weight="700" fill="#b4432c">0.3 north</text><text x="700" y="458.0" text-anchor="middle" font-size="11" fill="#5a5f6a">grey: the truth, 2 north</text>
+</svg>
+    <figcaption>Worked example computed from the measured wiring. The fly walks 6 steps north then 4 south, so the truth is 2 north. Top: hΔB lands in hΔH's own column, so the weights it leaves point north with about the right length. Bottom: hΔB lands in hΔJ's own column and the opposite one, so every step writes both directions and the total cancels. hΔA, hΔI and hΔG behave like hΔH.</figcaption>
+  </figure><figure>
+    <svg viewBox="0 0 820 300" width="100%" role="img" aria-label="Where the synaptic-store ingredients converge">
+      <defs><marker id="c" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,4 L0,8 z" fill="#1b1b1f"/></marker><marker id="d" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L6,3 L0,6 z" fill="#b4432c"/></marker><marker id="e" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L6,3 L0,6 z" fill="#b07a12"/></marker><marker id="f" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L6,3 L0,6 z" fill="#6a4c93"/></marker></defs>
+      <rect x="20" y="110" width="140" height="56" rx="8" fill="#2a6f97"/><text x="90" y="132" text-anchor="middle" fill="#fff" font-weight="700">hΔB</text><text x="90" y="150" text-anchor="middle" fill="#fff" font-size="12">travel direction bump</text>
+      <rect x="270" y="100" width="220" height="76" rx="10" fill="#f6e7e3" stroke="#b4432c" stroke-width="2"/><text x="380" y="124" text-anchor="middle" font-weight="700">hΔH · hΔI</text><text x="380" y="142" text-anchor="middle" font-size="12">unrecorded candidates (hΔA, hΔG: recorded, leaky)</text><text x="380" y="160" text-anchor="middle" font-size="12">every cell receives hΔB, column-matched</text>
+      <line x1="160" y1="138" x2="268" y2="138" stroke="#1b1b1f" stroke-width="3" marker-end="url(#c)"/><text x="214" y="130" text-anchor="middle" font-size="12">1,000–3,600 each</text>
+      <rect x="200" y="20" width="360" height="44" rx="8" fill="#b07a12"/><text x="380" y="38" text-anchor="middle" fill="#fff" font-weight="700">FB4M, FB5H (dopamine)</text><text x="380" y="54" text-anchor="middle" fill="#fff" font-size="12">FB4M driven by PFNv, hΔB, PFNd and the ascending AN19B019: on while walking</text>
+      <line x1="380" y1="64" x2="380" y2="98" stroke="#b07a12" stroke-width="3" marker-end="url(#e)"/><text x="392" y="90" fill="#b07a12" font-size="12">FB4M on every hΔA and hΔI cell; FB5H on every hΔH cell</text>
+      <rect x="200" y="220" width="360" height="44" rx="8" fill="#6a4c93"/><text x="380" y="238" text-anchor="middle" fill="#fff" font-weight="700">OA-VPM3 (octopamine)</text><text x="380" y="254" text-anchor="middle" fill="#fff" font-size="12">gates recent memory in the mushroom body (Kapoor & Waddell 2024); reset role untested</text>
+      <line x1="380" y1="220" x2="380" y2="178" stroke="#6a4c93" stroke-width="3" marker-end="url(#f)"/><text x="392" y="204" fill="#6a4c93" font-size="12">hΔH 361 (all cells) · hΔI 72</text>
+      <rect x="600" y="110" width="200" height="56" rx="8" fill="#2f7d4a"/><text x="700" y="132" text-anchor="middle" fill="#fff" font-weight="700">FC2 goal / PFL3 steering</text><text x="700" y="150" text-anchor="middle" fill="#fff" font-size="12">1,400–5,700 each</text>
+      <line x1="490" y1="138" x2="598" y2="138" stroke="#b4432c" stroke-width="3.5" marker-end="url(#d)"/><text x="544" y="130" text-anchor="middle" font-size="12" fill="#b4432c">read-out</text>
+      <text x="410" y="290" text-anchor="middle" fill="#5a5f6a" font-size="12">All numbers are synapse counts in MaleCNS; every edge shown replicates in the hemibrain.</text>
+    </svg>
+    <figcaption>Everything a synaptic store needs meets on hΔH; hΔI lacks the reset. Synapse counts from MaleCNS; every connection shown is also present in the hemibrain.</figcaption>
+  </figure>
+<p>Scoring every hΔB target for the four requirements of a synaptic store, and setting aside the two populations already recorded, two candidates remain.</p>
+<table>
+<tr><th class="">type</th><th class="n">hΔB synapses</th><th class="">same column</th><th class="">write gate (cells covered)</th><th class="">reset</th><th class="">sends to</th></tr>
+<tr><td class="">hΔH (8 cells)</td><td class="n">1,010</td><td class="">82 %</td><td class="">FB5H dopamine 249 (8/8)</td><td class="">OA-VPM3 361 (8/8)</td><td class="">FC2, PFL3</td></tr>
+<tr><td class="">hΔI (17)</td><td class="n">3,575</td><td class="">48 %</td><td class="">FB4M dopamine 380 (17/17)</td><td class="">none</td><td class="">PFL3, PFL2</td></tr>
+<tr><td class="">hΔJ (31), rejected</td><td class="n">4,232</td><td class="">35 % (+28 % opposite)</td><td class="">FB1H 1,184 (31/31)</td><td class="">OA-VPM3 377</td><td class="">FC2</td></tr></table>
+<p>Column matching is what makes a synaptic store work. hΔB lands on hΔH in hΔH's own column 82 percent of the time, so a step north strengthens the north synapses and little else. hΔJ receives more hΔB synapses than any candidate, but in two opposite columns, so every step strengthens both north and south and the sum cancels. In a simulation that writes a random walk through each type's measured landing pattern, hΔH retains 86 percent of an ideal store, hΔI 56, hΔJ 14. (The recorded hΔA and hΔG score 76 and 45; whether a synaptic component sits under their calcium signals is untested.)</p>
+<p>A write gate is present on both. FB5H, a dopamine type, contacts every hΔH cell; FB4M, another, contacts every hΔI cell across all columns and is fed by the velocity neurons PFNv, PFNd and hΔB and by an ascending neuron from the ventral nerve cord, so it is placed to fire while the fly walks: the translational counterpart of ExR2, which gates compass learning by rotation speed (Fisher 2022).</p>
+<p>A reset is the weakest link. OA-VPM3, the octopaminergic pair that supplies most of the mushroom body's octopamine and gates recent-memory expression there (Kapoor &amp; Waddell 2024), contacts every hΔH cell uniformly across columns; nothing about its known function says it fires at food. hΔI has no uniform octopamine input. Janke's hΔG reset at sugar shows a reset signal exists in this circuit; what carries it is unknown.</p>
+<p>The output goes to the right place: FC2 and PFL3, which turn a stored direction into walking (Mussells Pires 2024; Westeinde 2024). Every edge here is present in both connectomes. hΔH meets all four requirements; hΔI lacks the reset.</p>
+<h2>How a synaptic store is read</h2>
+<p>There is no recall step. A store cell fires as hΔB's drive times its synapse strength. hΔB is active whenever the fly moves, so as soon as it walks, the store's output across the columns is the stored pattern, flowing to FC2 and PFL3. The same walking that reads also writes: walking home strengthens the opposite columns until the difference is zero, which is arrival. The output points from food to fly; turning it into "go back" is a separate neuron, and is finding 2.</p>
+<h2>What the simulations show</h2>
+<p>Only a running vector sum reproduces the fly's search behaviour. In Kim's and Titova's assays the search-centre error is 0.8 units for a vector sum, 12.7 for a random walk, and 26.8 for either remembering the direction at the food or the distance walked. In closed loop, an agent using the store returns to the food (median closest approach 1.1 units versus 6.8 without memory), provided the readout is rotated by half a turn before steering; without the rotation it walks away every time.</p>
+<h2>What is not known</h2>
+<p>Nobody has recorded plasticity at these synapses, or dopamine or octopamine acting on them. If synapses only strengthen they saturate over trips; either a reset or a rule that weakens the opposite synapses on the return is required, and the connectome cannot tell which. A fly standing still has no hΔB drive and so no readout. The behavioural premise itself has a caveat: silencing the compass did not reduce direct returns to food in local search (Goldschmidt 2026). And the measured hΔ integrators all leak over seconds, which is a reason to expect the same of hΔH and hΔI.</p>
+<h2>What would settle it</h2>
+<ul><li>Image hΔH in a fly re-zeroing its home vector (Behbahani 2021), with a cAMP sensor alongside calcium, as Gorko 2025 did for the PFL1 goal circuit where the stored direction proved absent from calcium: a synaptic store grows with distance in cAMP or weights; an activity store grows in calcium; either collapses at re-zero.</li><li>Block dopamine or cAMP signalling in hΔH or hΔI: the fly should stop returning while hΔB and the compass stay intact.</li><li>Silence OA-VPM3 while the fly feeds: if it is the reset, subsequent search should no longer centre on the food.</li></ul>
+<h2>Prior work</h2>
+<p>hΔB as the travel-direction signal: Lu 2022; Lyu 2022. Vector memories in the columnar inputs to FC2, with durations set by mechanism: Maimon &amp; Abbott 2026 (Figure 5). Synaptic storage of a vector or goal angle: Hulse 2021; Goulard 2023; Dan 2024. hΔG as a leaky distance integrator reset at food: Janke 2025 (thesis, abstract; full text embargoed to October 2026). hΔA as a 7–10 s travel-direction memory: Avritzer 2026 (thesis, abstract; embargoed to May 2027). hΔK persistence: Lanz 2025; Kathman 2026. What is added here is the cell-by-cell wiring test of the synaptic version: which hΔ types receive hΔB in the matching column, which have uniform dopamine and octopamine coverage, and the readout and sign analysis that follows in finding 2.</p>
+<div class="methods">
+<h2>Methods</h2>
+<p>Column offsets: every fan-shaped-body neuron in MaleCNS v1.0 carries a column label; angular offsets use the true column count per type (12 for hΔA/B/C/I/J/K/L, 8 for hΔD/E/G/H/M and PFNd, 6 for hΔF; C9≡C1 for nine-label types). hΔ cells are named by their dendritic column (Hulse 2021), and hΔB's bump sits on its axonal arbor (Lyu 2022). Recurrence: within-type synapses binned by angular offset, normalised by total input, signed by predicted transmitter, Fourier-decomposed; compass cells binned by ellipsoid-body wedge. Site screen: every synapse from a travel- or heading-tuned population onto every columnar population scored for column matching, per-cell modulator coverage, and output to FC2/PFL3. Simulations: rate-based agent, eight columns, rectified-cosine hΔB bump written at the axon column, weights incremented through each candidate's measured landing kernel, readout as weights times drive through its measured output kernel. Tables: <code>data/derived/recurrence_modes_v2.csv</code>, <code>fb_column_offsets.csv</code>, <code>synaptic_site_screen.csv</code>, <code>cx_ext_cell_edges.csv</code>. Scripts: <code>scripts/recurrence_modes_v2.py</code>, <code>synaptic_site_screen.py</code>; simulations: <code>simulations/closed_loop_routes_tspace.py</code>, <code>strategy_discrimination.py</code>, <code>closed_loop_return.py</code>. Notes: <code>docs/exhaustive-search.md</code>, <code>docs/audit-2026-09-13.md</code>.</p>
+</div>
+</main>
+</body>
+</html>

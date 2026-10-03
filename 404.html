@@ -1,17 +1,18 @@
 <!doctype html>
-<meta charset="utf-8">
-<title>Moved to offpolicyinc.com</title>
-<meta name="robots" content="noindex">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Not found</title><meta name="theme-color" content="#FFFFFF"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;800&family=Geist+Mono:wght@400&display=swap"><link rel="stylesheet" href="/assets/site.css?v=55e69978d5"></head>
+<body>
 <script>
-  // Every page that used to live on pwang724.github.io now lives on offpolicyinc.com. GitHub serves this page for
-  // any address here, and it sends the visitor to the new one. Edit ROUTES to add a project.
-  var ROUTES = [
-    ['wc3env', 'https://offpolicyinc.com/work/wc3env/', false],
-    ['fly-circuit-exploration', 'https://offpolicyinc.com/work/fast-weights/notebook/', true],  // keeps the page path
-    ['tennis-skeleton-quiz', 'https://offpolicyinc.com/work/skeleton-tennis/', false]
-  ];
-  var parts = location.pathname.replace(/^\/+/, '').split('/'), to = 'https://offpolicyinc.com/';
-  ROUTES.forEach(function (r) { if (parts[0] === r[0]) to = r[1] + (r[2] ? parts.slice(1).join('/') + location.search : ''); });
-  location.replace(to + location.hash);
+  // old fly notebook pages that became part of the writeup; anything else unknown under a project goes to its page
+  var FOLDERS = {"wc3env": "wc3env", "fast-weights": "fly-circuit-exploration", "federer": "federer", "skeleton-tennis": "tennis-skeleton-quiz"};
+  var parts = location.pathname.replace(/^\/+/, '').replace(/\.html$/, '').split('/'), to = null;
+  if (parts[0] === 'work' && FOLDERS[parts[1]]) parts = [FOLDERS[parts[1]]].concat(parts.slice(2));  // offpolicyinc.com-style addresses
+  if (parts[0] === 'fly-circuit-exploration') {
+    var rest = parts.slice(1).filter(function (p) { return p !== 'notebook'; });
+    to = /circuit$/.test(rest.join('/')) ? '/fly-circuit-exploration/#circuit'
+       : rest[0] === 'findings' && /^0[1-4]-/.test(rest[1] || '') ? '/fly-circuit-exploration/' + rest.join('/') + '.html'
+       : '/fly-circuit-exploration/';
+  } else if (Object.values(FOLDERS).indexOf(parts[0]) >= 0) to = '/' + parts[0] + '/';
+  if (to && to !== location.pathname) location.replace(to + (to.indexOf('#') < 0 ? location.hash : ''));
 </script>
-<p>This page moved to <a href="https://offpolicyinc.com/">offpolicyinc.com</a>.</p>
+<main class="unbranded"><section class="w-head wrap"><h1>Not here.</h1><p class="by">This page doesn&rsquo;t exist, or it moved. <a href="/">All projects</a></p></section></main>
+</body></html>
